@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Section</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+<style>
+  /* Global background colour (soft grey-blue for readability) */
+body {
+  background-color: #e5e9ec; /* calm modern background */
+}
+
+.about-section,
+.skills-section,
+.projects-section {
+  background-color: #e5e9ec; /* keeps everything consistent */
+}
+
+.contact-section {
+  background-color: #111827 !important; /* strong contrast */
+}
+
+
+  .about-section {
+    text-align: center;
+    padding: 50px 0;
+  }
+  .about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  .about-section img {
+    width: 200px; /* Adjust the size as needed */
+    height: 200px;
+    border-radius: 50%; /* Makes the image round */
+    margin-bottom: 20px;
+  }
+  .about-section p {
+    color: #333;
+  }
+
+  /* Additional CSS for Projects Section */
+.projects-section h2 {
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+.card {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Adds a subtle shadow around the card */
+}
+
+/* Projects: keep whole image visible without cropping */
+.projects-section .card-img-top {
+  height: 260px;              /* consistent height for all cards */
+  width: 100%;
+  object-fit: contain,cover;        /* show the whole image and the image covers the area properly */
+  object-position: center;    /* center it in the box */
+  background: #f8f9fa;        /* subtle backdrop for transparent areas */
+  padding: 4px;              /* a little breathing room around image */
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+
+
+.card-body {
+  padding: 15px;
+}
+.card-title {
+  font-size: 1.25rem;
+}
+.card-text {
+  margin-bottom: 15px;
+}
+
+.project-buttons {
+  display: flex;
+  justify-content: center;   /* Centers horizontally */
+  gap: 12px;                 /* Space between buttons */
+  margin-top: 15px;
+}
+
+.project-buttons .btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-buttons .btn:hover {
+  transform: translateY(-3px);
+}
+
+.project-buttons .btn-primary:hover {
+  background-color: #0056b3;
+  box-shadow: 0 0 10px rgba(0, 86, 179, 0.6);
+}
+
+.project-buttons .btn-secondary:hover {
+  background-color: #555;
+  box-shadow: 0 0 10px rgba(85, 85, 85, 0.6);
+}
+
+
+.projects-section .card { height: 100%; }
+.projects-section .card-body { display: flex; flex-direction: column; }
+.projects-section .card-body .btn + .btn { margin-left: .5rem; }
+.projects-section .card-body a.btn:last-child { margin-top: auto; } /* pins buttons to bottom */
+
+
+/* Additional CSS for Skills Section */
+.skills-section h2 {
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+.skills-section .card {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.skills-section .card-img-top {
+  padding: 20px; /* Add padding around your images if needed */
+  background-color: #f8f9fa; /* Adjust the background color if your images have transparent areas */
+  height: 180px; /* Fixed height for consistency */
+  object-fit: contain; /* This will make sure the image is scaled properly within the container */
+}
+.skills-section .card-body {
+  padding: 15px;
+}
+.skills-section .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+}
+.skills-section .btn-outline-primary {
+  color: #007bff;
+  border-color: #007bff;
+}
+.skills-section .btn-outline-primary:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+/* More addition for cards on skills section*/
+/* ---- Skill cards polish ---- */
+.skills-section .card {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform .2s ease, box-shadow .2s ease;
+  height: 100%;
+}
+.skills-section .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+}
+
+
+
+.skills-section .card-body { display:flex; flex-direction:column; }
+.skills-section .card-title { font-weight: 700; }
+.skill-meta { color:#6c757d; font-size:.95rem; }
+.skill-badges .badge { margin: .15rem .25rem 0 0; }
+.skill-link { margin-top:auto; } /* keeps button pinned to bottom for equal heights */
+
+
+/* Education Section */
+.education-section h2 {
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+.education-section ul li h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.education-section ul li p {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+
+
+/* Additional CSS for contact section */
+.contact-item {
+  font-size: 1.2rem;
+}
+
+.contact-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #00bcd4;
+}
+
+.social-link {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #00bcd4;
+  transform: translateY(-5px);
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  display: block;
+  margin: 0 auto 5px;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.2);
+}
+
+
+
+
+
+
+/* CSS for Sticky Navbar */
+/* Navbar Styling */
+.navbar {
+  background-color: #1f2937 !important; /* dark slate */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Navbar Link Styling */
+.navbar-nav .nav-link {
+  color: #f1f5f9 !important;
+  padding: 8px 15px;
+  transition: 0.3s ease;
+  font-weight: 500;
+}
+
+/* Hover effect */
+.navbar-nav .nav-link:hover {
+  color: #38bdf8 !important;               /* light sky blue hover */
+  transform: translateY(-2px);             /* smooth hover motion */
+}
+
+/* Active link styling */
+.navbar-nav .nav-link.active {
+  color: #38bdf8 !important;
+  border-bottom: 2px solid #38bdf8;
+}
+
+
+/* Media query for responsive navbar collapsing */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    background-color: #343a40; /* Same as navbar color for seamless look */
+  }
+}
+
+
+</style>
+
+</head>
+<body>
+
+<section id='about' class="about-section">
+  <div class="container">
+    <h2>About</h2>
+    <img src="images/about/1.png" alt="About Me">
+    <p>Highly skilled and analytical SQL Data Analyst & Data Modeller with expertise in advanced statistical analysis, Machine Learning, BigQuery and data modelling. Proven experience delivering data transformation, complex SQL interrogation and business data modelling across energy, financial and academic environments. Proficient in designing and maintaining ETL pipelines, performing data discovery and root cause analysis. Expert in translating ambiguous business requirements into structured, scalable data solutions.</p>
+    <p>A strong problem-solver with a solid command of data extraction, transformation and visualisation, I am adept at data mapping, documentation and applying business rules to develop clean and reliable data models. Skilled in tools such as SQL, R, MS Excel, Python, Power BI and Tableau, with a keen eye for data quality, governance and process optimisation.</p>
+    <p>I bring excellent communication skills and the ability to present complex analytical findings to both technical and non-technical audiences, supporting evidence-based decision-making at all levels. Passionate about uncovering actionable insights and trends. I combine technical expertise with strategic thinking to drive business value through data.</p>
+  </div>
+</section>
+<style>
+  .about-section p {
+    font-weight: bold;
+  }
+</style>
+
+<!-- Projects Section -->
+<section id="projects" class="projects-section bg-light" id="projects">
+  <div class="container">
+    <h2 class="text-center">Projects</h2>
+    <div class="row">
+      <!-- Project 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="images/projects/1.jpg" class="card-img-top" alt="Project 1">
+          <div class="card-body">
+            <h5 class="card-title">Project on Health data using R and ShinyApp</h5>
+            <p class="card-text">This project examines the impact of the COVID-19 pandemic on trends in mental health services in Scotland. 
+              It focuses on immediate and long-term shifts in psychiatric admissions, demographic disparities and regional variation. 
+              Using high-frequency, population-level data from Public Health Scotland and NHS Scotland (2018-2023), the study employs 
+              reliable quasi-experimental methods, Interrupted Time-Series (ITS) analysis and Mixed-Effects Regression modelling, 
+              to measure both sudden and sustained changes in service utilisation and diagnostic patterns. Interactive Shiny dashboard visualizes 
+              findings, informs policy and resource allocation. The ShinyApp facilitates stakeholder engagement, real-time monitoring, 
+              evidence-based decision-making and targeted interventions. </p>
+            <div class="project-buttons">
+              <a href="https://connect.posit.cloud/maxnwosu/content/0198ca06-60f9-ad89-666b-08ea8c23d2e5" class="btn btn-primary">Dashboard</a>
+              <a href="https://github.com/frizuma3/covid-mental-health" class="btn btn-secondary">Source Code</a>
+            </div>         
+          </div>
+        </div>
+      </div>
+      <!-- Project 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="images/projects/2.jpg" class="card-img-top" alt="Project 2">
+          <div class="card-body">
+            <h5 class="card-title">Predicting Daily Collision Counts.</h5>
+            <p class="card-text">This end-to-end data analytics project explores the drivers of daily road collisions over eight years, 
+              combining exploratory analysis with two predictive modelling approaches: Linear Regression and a Deep Neural Network (DNN). 
+              Implemented entirely in Python on Google Colab, the project demonstrates proficiency in data cleaning, feature engineering, 
+              statistical analysis and TensorFlow-based model development.</p>
+              <p>This project illustrates a full analytics lifecycle from data ingestion and exploratory visualisation to 
+                advanced predictive modelling. It delivers actionable insights into collision dynamics. 
+                The combination of statistical rigour and machine learning sophistication makes it a compelling showcase for both 
+                data science and applied analytics roles.</p>
+            <div class="project-buttons">
+              <a href="https://www.linkedin.com/pulse/predicting-daily-road-collisions-weather-calendars-machine-nwosu-rirvf" class="btn btn-primary">Read on LinkedIn</a>
+              <a href="https://github.com/frizuma3/21013159_DataAnalytics/blob/main/Assignment_one.ipynb" class="btn btn-secondary">Source Code</a>
+            </div>           
+          </div>
+        </div>
+      </div>
+      <!-- Project 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="images/projects/3.png" class="card-img-top" alt="Project 3">
+          <div class="card-body">
+            <h5 class="card-title">Classic Models</h5>
+            <p class="card-text">This Power BI dashboard explores sales and profitability for Classic Models Ltd, 
+              a retailer of collectible vehicles. It provides an interactive view of global performance from 2003 to 2005, 
+              helping managers identify profitable regions, products and customers.</p>
+
+            <p>Users can filter by year, month, product line or country to explore trends and compare performance. 
+              Designed entirely in Power BI Desktop, this project demonstrates strong skills in data modelling, DAX measures 
+              and storytelling with visuals. It turns raw sales data into actionable insights for operational and strategic 
+              decision-making. The analysis highlights the USA and France as leading markets and shows that Classic Cars consistently 
+              drive the highest profit. The dashboard illustrates how clear data visualisation can guide evidence-based business decisions 
+              and improve sales planning.</p>
+            <div class="project-buttons">
+              <a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Power%20BI%20-%20ClassicModels%20Dashboard.pdf" class="btn btn-primary">View Report</a>
+              <a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Power%20BI%20-%20ClassicModels%20Dashboard.pbix" class="btn btn-secondary">Download Dashboard (.pbix)</a>
+            </div>            
+          </div>
+        </div>
+      </div>
+      <!-- Project 4 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="images/projects/4.png" class="card-img-top" alt="Project 3">
+          <div class="card-body">
+            <h5 class="card-title">Electric Vehicle Analysis and Dashboard</h5>
+            <p class="card-text">This Tableau project presents an analytical overview of electric vehicle (EV) adoption across Washington State. 
+              This highlights trends by vehicle make, model, type and geographic distribution. The dashboard integrates registration and ownership 
+              data to help policymakers, researchers and businesses understand patterns in EV usage and infrastructure needs.</p>
+            <p>The analysis focuses on Battery Electric Vehicles (BEV) and Plug-in Hybrid Electric Vehicles (PHEV), identifying Tesla, Nissan 
+              and Chevrolet as the leading manufacturers. Users can explore data interactively by county, year and vehicle type, 
+              gaining insight into how EV adoption has evolved from 2014 to 2023. Geographic maps reveal concentration hotspots such as King, 
+              Snohomish and Pierce counties, which collectively account for the highest EV ownership.</p>
+            <p>This is built entirely in Tableau Desktop, the dashboard demonstrates strong capability in data visualisation, geospatial analysis 
+              and interactive storytelling. It transforms complex datasets into an accessible, evidence-based tool for promoting sustainable transport 
+              and supporting data-driven policy decisions. This project showcases how visual analytics can bridge the gap between environmental data 
+              and actionable insights for a greener future.</p>
+            <div class="project-buttons">
+              <a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Tableau%20EV%20Dashboard.pdf" class="btn btn-primary">View Report</a>
+              <a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Tableau%20-%20Electric%20Vehicle%20Analysis%20%26%20Dashboard.twbx" class="btn btn-secondary">Download Tableau Workbook (.twbx)</a>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Skills Section -->
+<section id="skills" class="skills-section bg-white">
+  <div class="container">
+    <h2 class="text-center">Skills</h2>
+    <div class="row">
+
+      <!-- R -->
+      <div class="col-lg-3 col-md-6 mb-4 d-flex">
+        <div class="card w-100">
+          <img src="images/skills/1.jpeg" class="card-img-top" alt="R">
+          <div class="card-body">
+            <h5 class="card-title">R</h5>
+            <p class="card-text">
+              R is one of my core languages for analysis and modelling. I use it to clean large datasets,
+              run advanced statistical tests and build predictive models. I also develop interactive
+              dashboards in <strong>R Shiny</strong> so stakeholders can explore real-time insights.
+            </p>
+            <p class="skill-meta mb-1"><strong>Tools</strong> R Shiny, tidyverse, ggplot2, dplyr, tidyr, caret, forecast, nlme</p>
+            <div class="skill-badges mb-3">
+              <span class="badge bg-primary text-white">Forecasting</span>
+              <span class="badge bg-primary text-white">Regression</span>
+              <span class="badge bg-primary text-white">Dashboards</span>
+            </div>
+          <!-- <a href="#" class="btn btn-outline-primary skill-link">Link</a>  -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Visualisation -->
+      <div class="col-lg-3 col-md-6 mb-4 d-flex">
+        <div class="card w-100">
+          <img src="images/skills/2.png" class="card-img-top" alt="Data Visualisation">
+          <div class="card-body">
+            <h5 class="card-title">Data Visualisation</h5>
+            <p class="card-text">
+              I turn complex data into clear, decision-ready visuals. From KPI dashboards and time-series
+              trends to categorical comparisons, I design visuals that tell a compelling story and drive action.
+            </p>
+            <p class="skill-meta mb-1"><strong>Tools</strong> Power BI, Tableau, R (ggplot2), Python (Matplotlib, Seaborn)</p>
+            <div class="skill-badges mb-3">
+              <span class="badge bg-primary text-white">Dashboards</span>
+              <span class="badge bg-primary text-white">KPI Reporting</span>
+              <span class="badge bg-primary text-white">Design for impact</span>
+            </div>
+            <!-- <a href="#" class="btn btn-outline-primary skill-link">Link</a>  -->
+          </div>
+        </div>
+      </div>
+
+      <!-- SQL -->
+      <div class="col-lg-3 col-md-6 mb-4 d-flex">
+        <div class="card w-100">
+          <img src="images/skills/3.png" class="card-img-top" alt="SQL">
+          <div class="card-body">
+            <h5 class="card-title">SQL</h5>
+            <p class="card-text">
+              I write robust SQL for extraction, transformation and performance-minded joins and
+              build reusable queries and views. Experienced across <strong>MySQL, PostgreSQL</strong> and
+              <strong>BigQuery</strong> designing efficient data models and pipelines.
+            </p>
+            <p class="skill-meta mb-1"><strong>Tools</strong> MySQL, PostgreSQL, Google BigQuery</p>
+            <div class="skill-badges mb-3">
+              <span class="badge bg-primary text-white">ETL</span>
+              <span class="badge bg-primary text-white">Data Modelling</span>
+              <span class="badge bg-primary text-white">Root-cause analysis</span>
+            </div>
+            <!-- <a href="#" class="btn btn-outline-primary skill-link">Link</a>  -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Storytelling -->
+      <div class="col-lg-3 col-md-6 mb-4 d-flex">
+        <div class="card w-100">
+          <img src="images/skills/4.png" class="card-img-top" alt="Data Storytelling">
+          <div class="card-body">
+            <h5 class="card-title">Data Storytelling</h5>
+            <p class="card-text">
+              I translate analysis into strategy, clear recommendations, crisp reports and confident
+              presentations for both technical and non-technical audiences.
+            </p>
+            <p class="skill-meta mb-1"><strong>Strengths</strong> Insight communication, executive storytelling, research synthesis.</p>
+            <div class="skill-badges mb-3">
+              <span class="badge bg-primary text-white">Stakeholder</span>
+              <span class="badge bg-primary text-white">Narrative</span>
+              <span class="badge bg-primary text-white">Actionable Insights</span>
+            </div>
+            <!-- <a href="#" class="btn btn-outline-primary skill-link">Link</a>  -->
+          </div>
+        </div>
+      </div>
+
+      <!-- MS Excel -->
+      <div class="col-lg-3 col-md-6 mb-4 d-flex">
+        <div class="card w-100">
+          <img src="images/skills/5.png" class="card-img-top" alt="MS Excel">
+          <div class="card-body">
+            <h5 class="card-title">MS Excel</h5>
+            <p class="card-text">
+              Advanced Excel for rapid analysis and automation: dynamic dashboards, complex formulas,
+              PivotTables and VBA macros to streamline recurring reports and data wrangling.
+            </p>
+            <p class="skill-meta mb-1"><strong>Tools</strong> Excel VBA, PivotTables, LOOKUP/INDEX-MATCH, Power Query.</p>
+            <div class="skill-badges mb-3">
+              <span class="badge bg-primary text-white">Automation</span>
+              <span class="badge bg-primary text-white">Reporting</span>
+              <span class="badge bg-primary text-white">Data Cleaning</span>
+            </div>
+            <!-- <a href="#" class="btn btn-outline-primary skill-link">Link</a>  -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Education Section -->
+<section id="education" class="education-section bg-light py-5">
+  <div class="container">
+    <h2 class="text-center">Education</h2>
+    <ul class="list-unstyled mt-4">
+      <li class="mb-3">
+        <h5 class="mb-1">Applied Data Analytics (MSc)</h5>
+        <p class="mb-0 text-muted">University of the Highlands and Islands -  August 2025</p>
+      </li>
+      <li class="mb-3">
+        <h5 class="mb-1">Computer Science (HND)</h5>
+        <p class="mb-0 text-muted">University of the Highlands and Islands -  June 2023</p>
+      </li>
+      <li class="mb-3">
+        <h5 class="mb-1">Creative Problem-Solving and Decision-Making</h5>
+        <p class="mb-0 text-muted">Delft University of Technology (edX) -  July 2017</p>
+      </li>
+      <li>
+        <h5 class="mb-1">Bachelor of Philosophy (B. Phil. Hons)</h5>
+        <p class="mb-0 text-muted">Pontifical Urban University -  June 2006</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+<!-- Contact Me Section -->
+<section id="contact" class="contact-section text-center text-white bg-dark py-5">
+  <div class="container">
+
+    <h2 class="mb-4 fw-bold">Contact Me</h2>
+
+    <!-- Contact Info -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-5 mb-2">
+        <p class="contact-item">
+          <i class="fas fa-envelope me-2"></i>
+          <a href="mailto:frizuma3@gmail.com" class="contact-link">frizuma3@gmail.com</a>
+        </p>
+      </div>
+      <div class="col-md-5 mb-2">
+        <p class="contact-item">
+          <i class="fas fa-phone me-2"></i>
+          <a href="tel:+447436957368" class="contact-link">+44 7436 957368</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-2 col-md-3 col-6 mb-4">
+        <a href="https://www.linkedin.com/in/maximilian-nwosu-5730859b" target="_blank" class="social-link">
+          <img src="icons/linkedin.png" alt="LinkedIn" class="social-icon"> LinkedIn
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6 mb-4">
+        <a href="https://github.com/frizuma3?tab=repositories" target="_blank" class="social-link">
+          <img src="icons/github.png" alt="GitHub" class="social-icon"> GitHub
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6 mb-4">
+        <a href="https://twitter.com/yourusername" target="_blank" class="social-link">
+          <img src="icons/twitter.png" alt="Twitter" class="social-icon"> Twitter
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6 mb-4">
+        <a href="https://youtube.com/c/yourchannel" target="_blank" class="social-link">
+          <img src="icons/youtube.png" alt="YouTube" class="social-icon"> YouTube
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Sticky Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#home">Max's Portfolio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#education">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Bootstrap JS and dependencies (jQuery and Popper) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
