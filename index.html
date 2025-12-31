@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Section</title>
+<meta name="description" content="Portfolio of Maximilian Nwosu, a Data Scientist specialising in R, SQL, Power BI, Shiny dashboards, BigQuery and machine learning. View projects, dashboards and source code.">
+<link rel="canonical" href="https://maxnwosu.com/">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Maximilian Nwosu | Data Scientist Portfolio">
+<meta property="og:description" content="R, SQL, Power BI, Shiny dashboards, BigQuery and Machine Learning projects.">
+<meta property="og:url" content="https://maxnwosu.com/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://maxnwosu.com/images/about/1.jpg">
+<title>Maximilian Nwosu | Data Scientist | Computer Scientist | Data Analyst | R, SQL, Power BI, Shiny</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -54,16 +62,18 @@ body {
 }
 
 /* Projects: keep whole image visible without cropping */
+
+
 .projects-section .card-img-top {
-  height: 260px;              /* consistent height for all cards */
+  height: 260px;
   width: 100%;
-  object-fit: contain,cover;        /* show the whole image and the image covers the area properly */
-  object-position: center;    /* center it in the box */
-  background: #f8f9fa;        /* subtle backdrop for transparent areas */
-  padding: 4px;              /* a little breathing room around image */
-  border-top-left-radius: .25rem;
-  border-top-right-radius: .25rem;
+  object-fit: contain, cover;
+  object-position: center;
+  background: #f8f9fa;
+  padding: 4px;
 }
+
+
 
 
 .card-body {
@@ -260,11 +270,22 @@ body {
 
 </head>
 <body>
+  <section id="home" class="py-5">
+  <div class="container text-center" style="padding-top:70px;">
+    <h1>Data and Computer Scientist specialising in R, SQL, Power BI & Shiny</h1>
+    <p class="lead">I build analytics dashboards, data models and machine learning solutions for decision-making.</p>
+    <p>
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-secondary">Contact</a>
+    </p>
+  </div>
+</section>
+
 
 <section id='about' class="about-section">
   <div class="container">
     <h2>About</h2>
-    <img src="images/about/1.jpg" alt="About Me">
+    <img src="images/about/1.jpg" alt="Maximilian Nwosu - Data Scientist portfolio photo">
     <p>Highly skilled and analytical SQL Data Analyst & Data Modeller with expertise in advanced statistical analysis, Machine Learning, BigQuery and data modelling. Proven experience delivering data transformation, complex SQL interrogation and business data modelling across energy, financial and academic environments. Proficient in designing and maintaining ETL pipelines, performing data discovery and root cause analysis. Expert in translating ambiguous business requirements into structured, scalable data solutions.</p>
     <p>A strong problem-solver with a solid command of data extraction, transformation and visualisation, I am adept at data mapping, documentation and applying business rules to develop clean and reliable data models. Skilled in tools such as SQL, R, MS Excel, Python, Power BI and Tableau, with a keen eye for data quality, governance and process optimisation.</p>
     <p>I bring excellent communication skills and the ability to present complex analytical findings to both technical and non-technical audiences, supporting evidence-based decision-making at all levels. Passionate about uncovering actionable insights and trends. I combine technical expertise with strategic thinking to drive business value through data.</p>
@@ -277,14 +298,14 @@ body {
 </style>
 
 <!-- Projects Section -->
-<section id="projects" class="projects-section bg-light" id="projects">
+<section id="projects" class="projects-section bg-light">
   <div class="container">
     <h2 class="text-center">Projects</h2>
     <div class="row">
       <!-- Project 1 -->
       <div class="col-md-4 mb-4">
         <div class="card">
-          <img src="images/projects/1.jpg" class="card-img-top" alt="Project 1">
+          <img src="images/projects/1.jpg" class="card-img-top" alt="R Shiny dashboard mental health Scotland">
           <div class="card-body">
             <h5 class="card-title">Project on Health data using R and ShinyApp</h5>
             <p class="card-text">This project examines the impact of the COVID-19 pandemic on trends in mental health services in Scotland. 
@@ -293,7 +314,8 @@ body {
               reliable quasi-experimental methods, Interrupted Time-Series (ITS) analysis and Mixed-Effects Regression modelling, 
               to measure both sudden and sustained changes in service utilisation and diagnostic patterns. Interactive Shiny dashboard visualizes 
               findings, informs policy and resource allocation. The ShinyApp facilitates stakeholder engagement, real-time monitoring, 
-              evidence-based decision-making and targeted interventions. </p>
+              evidence-based decision-making and targeted interventions. <a href="projects/mental-health-r-shiny.html" class="btn btn-outline-primary btn-sm">
+              Read More</a> </p>
             <div class="project-buttons">
               <a href="https://connect.posit.cloud/maxnwosu/content/0198ca06-60f9-ad89-666b-08ea8c23d2e5" class="btn btn-primary">Dashboard</a>
               <a href="https://www.linkedin.com/pulse/data-driven-exploration-mental-health-trends-scotland-nwosu-udpof" class="btn btn-primary">Read on LinkedIn</a>
@@ -305,7 +327,7 @@ body {
       <!-- Project 2 -->
       <div class="col-md-4 mb-4">
         <div class="card">
-          <img src="images/projects/2.jpg" class="card-img-top" alt="Project 2">
+          <img src="images/projects/2.jpg" class="card-img-top" alt="Regression in Predicting Daily Collision">
           <div class="card-body">
             <h5 class="card-title">Predicting Daily Collision Counts.</h5>
             <p class="card-text">This end-to-end data analytics project explores the drivers of daily road collisions over eight years, 
@@ -315,7 +337,8 @@ body {
               <p>This project illustrates a full analytics lifecycle from data ingestion and exploratory visualisation to 
                 advanced predictive modelling. It delivers actionable insights into collision dynamics. 
                 The combination of statistical rigour and machine learning sophistication makes it a compelling showcase for both 
-                data science and applied analytics roles.</p>
+                data science and applied analytics roles. <a href="projects/collision-prediction-tensorflow.html" class="btn btn-outline-primary btn-sm">
+                Read More</a></p>
             <div class="project-buttons">
               <a href="https://www.linkedin.com/pulse/predicting-daily-road-collisions-weather-calendars-machine-nwosu-rirvf" class="btn btn-primary">Read on LinkedIn</a>
               <a href="https://github.com/frizuma3/21013159_DataAnalytics/blob/main/Assignment_one.ipynb" class="btn btn-secondary">Source Code</a>
@@ -326,7 +349,7 @@ body {
       <!-- Project 3 -->
       <div class="col-md-4 mb-4">
         <div class="card">
-          <img src="images/projects/3.png" class="card-img-top" alt="Project 3">
+          <img src="images/projects/3.png" class="card-img-top" alt="Power BI Classic Models dashboard">
           <div class="card-body">
             <h5 class="card-title">Classic Models</h5>
             <p class="card-text">This Power BI dashboard explores sales and profitability for Classic Models Ltd, 
@@ -338,7 +361,8 @@ body {
               and storytelling with visuals. It turns raw sales data into actionable insights for operational and strategic 
               decision-making. The analysis highlights the USA and France as leading markets and shows that Classic Cars consistently 
               drive the highest profit. The dashboard illustrates how clear data visualisation can guide evidence-based business decisions 
-              and improve sales planning.</p>
+              and improve sales planning. <a href="projects/power-bi-classic-models.html" class="btn btn-outline-primary btn-sm">
+              Read More</a></p>
             <div class="project-buttons">
               <a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Power%20BI%20-%20ClassicModels%20Dashboard.pdf" class="btn btn-primary">View Report</a>
               <a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Power%20BI%20-%20ClassicModels%20Dashboard.pbix" class="btn btn-secondary">Download Dashboard (.pbix)</a>
@@ -349,7 +373,7 @@ body {
       <!-- Project 4 -->
       <div class="col-md-4 mb-4">
         <div class="card">
-          <img src="images/projects/4.png" class="card-img-top" alt="Project 3">
+          <img src="images/projects/4.png" class="card-img-top" alt="Tableau Electric Vehicle Dashboard">
           <div class="card-body">
             <h5 class="card-title">Electric Vehicle Analysis and Dashboard</h5>
             <p class="card-text">This Tableau project presents an analytical overview of electric vehicle (EV) adoption across Washington State. 
@@ -362,7 +386,8 @@ body {
             <p>This is built entirely in Tableau Desktop, the dashboard demonstrates strong capability in data visualisation, geospatial analysis 
               and interactive storytelling. It transforms complex datasets into an accessible, evidence-based tool for promoting sustainable transport 
               and supporting data-driven policy decisions. This project showcases how visual analytics can bridge the gap between environmental data 
-              and actionable insights for a greener future.</p>
+              and actionable insights for a greener future. <a href="projects/tableau-ev-dashboard.html" class="btn btn-outline-primary btn-sm">
+              Read More</a></p>
             <div class="project-buttons">
               <a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Tableau%20EV%20Dashboard.pdf" class="btn btn-primary">View Report</a>
               <a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Tableau%20-%20Electric%20Vehicle%20Analysis%20%26%20Dashboard.twbx" class="btn btn-secondary">Download Tableau Workbook (.twbx)</a>
@@ -604,10 +629,25 @@ body {
   </div>
 </nav>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Maximilian Nwosu",
+  "jobTitle": "Data Scientist",
+  "url": "https://maxnwosu.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/maximilian-nwosu-5730859b",
+    "https://github.com/frizuma3"
+  ],
+  "knowsAbout": ["R", "SQL", "Power BI", "Tableau", "BigQuery", "Machine Learning", "Shiny"]
+}
+</script>
+
 
 <!-- Bootstrap JS and dependencies (jQuery and Popper) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+<script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

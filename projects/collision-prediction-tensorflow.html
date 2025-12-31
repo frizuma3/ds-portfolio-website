@@ -1,0 +1,163 @@
+<!-- File: projects/collision-prediction-tensorflow.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>
+    Predicting Daily Road Collisions | Machine Learning, TensorFlow | Maximilian Nwosu
+  </title>
+
+  <meta name="description" content="An end-to-end data science project by Maximilian Nwosu predicting daily road collisions using calendar and weather signals (2012–2019). Compares linear regression and TensorFlow deep neural networks, showing weekday behaviour as the dominant risk driver." />
+
+  <link rel="canonical" href="https://maxnwosu.com/projects/collision-prediction-tensorflow.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Consistent site styling -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-light px-3">
+    <a class="navbar-brand" href="/">← Back to maxnwosu.com</a>
+  </nav>
+
+  <main class="container py-5">
+
+    <header class="mb-4">
+      <h1>Predicting Daily Road Collisions with Weather, Calendars & Machine Learning</h1>
+      <p class="lead">
+        An end-to-end analytics and modelling project that explores what truly drives daily road collision risk,
+        comparing interpretable linear models with a TensorFlow deep neural network to forecast collision frequency
+        using calendar and weather signals.
+      </p>
+    </header>
+
+    <section class="mb-4">
+      <h2>Problem</h2>
+      <p>
+        Urban safety teams, emergency services and transport planners need reliable and explainable indicators
+        to allocate resources, schedule enforcement and communicate risk.
+        This project was designed to answer three practical questions:
+      </p>
+      <ul>
+        <li>Which factors correlate most strongly with daily road collision frequency?</li>
+        <li>Can a simple, transparent model forecast risk accurately enough for planning?</li>
+        <li>Do non-linear machine learning models add meaningful value over linear baselines?</li>
+      </ul>
+    </section>
+
+    <section class="mb-4">
+      <h2>Data</h2>
+      <ul>
+        <li><strong>Time span:</strong> mid-2012 to 2019 (2012 partial year; COVID-era excluded)</li>
+        <li><strong>Target variable:</strong> total daily collision count (normalised for modelling)</li>
+        <li><strong>Calendar features:</strong> year, month, day-of-week, day-of-year, global day index</li>
+        <li><strong>Weather features:</strong> temperature (avg/min/max), dew point, precipitation, visibility,
+            wind speed, max wind speed, fog indicator, sea-level pressure</li>
+      </ul>
+      <p>
+        Data were joined at daily resolution and explored across years to assess stability, distributions
+        and potential regime changes.
+      </p>
+    </section>
+
+    <section class="mb-4">
+      <h2>Feature Engineering & Preparation</h2>
+      <ul>
+        <li>One-hot encoding for months (12) and weekdays (7)</li>
+        <li>Creation of day-of-year and global day index to stack yearly patterns</li>
+        <li>Normalisation of collision counts for cross-year comparability</li>
+        <li>80/20 train-test split with 20% of training held out for validation</li>
+      </ul>
+    </section>
+
+    <section class="mb-4">
+      <h2>Exploratory Findings</h2>
+      <ul>
+        <li><strong>Weekly behaviour dominates:</strong> day of week shows the strongest correlation with collisions (r ≈ 0.53)</li>
+        <li><strong>Weather effects are modest:</strong> temperature (r ≈ 0.23) and dew point (r ≈ 0.21) are weakly positive</li>
+        <li><strong>Minimal impact:</strong> precipitation, fog, wind and visibility correlations are near zero</li>
+        <li><strong>Year-to-year stability:</strong> collision distributions remain tightly banded across years,
+            indicating routine and behaviour over traditional seasonality</li>
+      </ul>
+    </section>
+
+    <section class="mb-4">
+      <h2>Modelling Approach</h2>
+      <ul>
+        <li><strong>Linear baselines (TensorFlow/Keras):</strong>
+          <ol>
+            <li>Day-only model → MAE ≈ 0.144 (normalised)</li>
+            <li>Day + temperature + dew point → MAE ≈ 0.127</li>
+          </ol>
+        </li>
+        <li><strong>Deep Neural Network:</strong>
+          <ol>
+            <li>Architecture: Normalisation → Dense(48, ReLU) → Dense(48, ReLU) → Dense(1)</li>
+            <li>Inputs: year, temperature, dew point, one-hot months, one-hot weekdays</li>
+            <li>Training: Adam optimiser, MAE loss, 100 epochs</li>
+          </ol>
+        </li>
+      </ul>
+    </section>
+
+    <section class="mb-4">
+      <h2>Results</h2>
+      <ul>
+        <li><strong>DNN performance:</strong> MAE ≈ 0.123 on the held-out test set</li>
+        <li><strong>Value of non-linearity:</strong> modest improvement over linear baselines by learning interactions
+            (e.g., warm mid-week days vs weekends)</li>
+        <li><strong>Interpretability preserved:</strong> predictions align with exploratory findings —
+            weekday traffic intensity dominates; weather fine-tunes risk</li>
+      </ul>
+      <p>
+        Example predictions showed Sunday in summer consistently lower risk than mid-week days at similar temperatures,
+        reinforcing the primacy of behavioural patterns.
+      </p>
+    </section>
+
+    <section class="mb-4">
+      <h2>Practical Applications</h2>
+      <ul>
+        <li>Weekday-weighted staffing and enforcement planning for police and EMS</li>
+        <li>Calendar-aware public risk messaging during peak commute days</li>
+        <li>Policy evaluation by comparing interventions against predicted baselines</li>
+        <li>Foundations for insurance, fleet and city-safety risk scoring</li>
+      </ul>
+    </section>
+
+    <section class="mb-4">
+      <h2>Ethics & Limitations</h2>
+      <ul>
+        <li>Predictions are intended to support resource allocation, not to stigmatise communities</li>
+        <li>Uncertainty must be communicated clearly; human oversight remains essential</li>
+        <li>Dataset lacks exposure variables (traffic volume, holidays, events),
+            suggesting future gains from richer data and time-aware validation</li>
+      </ul>
+    </section>
+
+    <section class="mb-4">
+      <h2>Links</h2>
+      <ul>
+        <li>
+          <a href="https://github.com/frizuma3/21013159_DataAnalytics/blob/main/Assignment_one.ipynb"
+             target="_blank" rel="noopener">
+            GitHub / Source Code
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/pulse/predicting-daily-road-collisions-weather-calendars-machine-nwosu-rirvf"
+             target="_blank" rel="noopener">
+            Read Full Analysis on LinkedIn
+          </a>
+        </li>
+        <li><a href="/">Back to portfolio homepage</a></li>
+      </ul>
+    </section>
+
+  </main>
+</body>
+</html>
