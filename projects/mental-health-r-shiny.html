@@ -1,124 +1,458 @@
+<!-- File: projects/mental-health-r-shiny.html -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Mental Health Trends in Scotland Pre- & Post-COVID (2018–2023) | R, Shiny, ITS, GLMM | Maximilian Nwosu</title>
-  <meta name="description" content="MSc dissertation project by Maximilian Nwosu (UHI): R-based analysis and Shiny dashboard on Scottish mental health trends (2018–2023) using Public Health Scotland and NHS Scotland data, Interrupted Time-Series modelling and Mixed-Effects Regression to assess COVID-19 impacts, inequalities and service changes.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="canonical" href="https://maxnwosu.com/projects/mental-health-r-shiny.html" />
-  <meta name="robots" content="index,follow" />
+<title>Mental Health Trends in Scotland (R & Shiny) | Maximilian Nwosu</title>
 
-  <!-- Optional: keep styling consistent -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/style.css">
+<meta name="description" content="Data science project analysing mental health service trends in Scotland before and after COVID-19 using Interrupted Time Series modelling, mixed-effects regression and an interactive R Shiny dashboard.">
+
+<link rel="canonical" href="https://maxnwosu.com/projects/mental-health-r-shiny.html">
+<meta name="robots" content="index,follow">
+
+<meta property="og:title" content="Mental Health Trends in Scotland | Data Analytics Project">
+<meta property="og:description" content="Public health analytics project using R, time-series modelling and Shiny dashboards to analyse mental-health service trends across Scotland.">
+<meta property="og:url" content="https://maxnwosu.com/projects/mental-health-r-shiny.html">
+<meta property="og:type" content="website">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+
+body { background:#e5e9ec; }
+
+.navbar {
+background:#1f2937 !important;
+box-shadow:0 2px 4px rgba(0,0,0,0.2);
+}
+
+.navbar-nav .nav-link {
+color:#f1f5f9 !important;
+padding:8px 15px;
+transition:0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+color:#38bdf8 !important;
+transform:translateY(-2px);
+}
+
+.page-hero {
+padding:90px 0 30px;
+text-align:center;
+}
+
+.section {
+padding:25px 0;
+}
+
+.card {
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.kpi-grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:12px;
+}
+
+.kpi {
+background:white;
+border-radius:10px;
+padding:14px;
+border:1px solid rgba(0,0,0,0.06);
+}
+
+.kpi .label {
+font-size:.9rem;
+color:#6c757d;
+}
+
+.kpi .value {
+font-size:1.2rem;
+font-weight:700;
+}
+
+footer {
+padding:30px 0;
+color:#6c757d;
+}
+
+</style>
+
 </head>
 
 <body>
-  <nav class="navbar navbar-light bg-light px-3">
-    <a class="navbar-brand" href="/">← Back to maxnwosu.com</a>
-  </nav>
 
-  <main class="container py-5">
-    <header class="mb-4">
-      <h1>A Data-Driven Exploration of Mental Health Trends in Scotland Pre- & Post-COVID-19 (R & Shiny)</h1>
-      <p class="lead">
-        As part of my MSc in Applied Data Analytics at the University of the Highlands and Islands (UHI),
-        I used public health data, advanced time-series modelling and visual analytics to understand how COVID-19 reshaped
-        mental health service patterns across Scotland and to translate complex results into an interactive Shiny dashboard
-        for evidence-based decision-making.
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand" href="../index.html#home">Max's Portfolio</a>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="nav">
+
+<ul class="navbar-nav ml-auto">
+<li class="nav-item"><a class="nav-link" href="../index.html#projects">Projects</a></li>
+<li class="nav-item"><a class="nav-link" href="../index.html#skills">Skills</a></li>
+<li class="nav-item"><a class="nav-link" href="../index.html#contact">Contact</a></li>
+</ul>
+
+</div>
+</div>
+</nav>
+
+
+<header class="page-hero">
+
+<div class="container">
+
+<h1>Mental Health Trends in Scotland Pre- & Post-COVID-19 (R & Shiny)</h1>
+
+<p class="lead">
+A public-health analytics project examining how the COVID-19 pandemic reshaped mental-health service use across Scotland,
+using time-series modelling, mixed-effects regression and an interactive Shiny dashboard.
+</p>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+<section class="section">
+
+<h3>Project Motivation</h3>
+
+<p>
+During the COVID-19 pandemic, public discussion frequently highlighted rising loneliness, anxiety and burnout.
+However, the evidence behind these narratives was often fragmented.
+</p>
+
+<p>
+This project aimed to answer several data-driven questions:
+</p>
+
+<ul>
+
+<li>Did mental-health service use increase or decline during the pandemic?</li>
+
+<li>Which regions and age groups experienced the greatest disruption?</li>
+
+<li>How did policy responses and NHS capacity pressures influence access to care?</li>
+
+</ul>
+
+<p>
+The objective was to transform Scotland’s public health data into actionable insights
+that could inform policy discussions, resource planning and equitable recovery strategies.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<h3>Data Sources</h3>
+
+<ul>
+
+<li>Public Health Scotland datasets</li>
+
+<li>NHS Scotland mental-health service statistics</li>
+
+<li>Time period analysed: 2018–2023</li>
+
+<li>Metrics analysed: psychiatric inpatient admissions and referral activity</li>
+
+<li>Additional context variables: mental-health expenditure by local authority</li>
+
+<li>Breakdowns: health board, age group, gender and diagnostic category</li>
+
+</ul>
+
+<p>
+Diagnostic data were organised using ICD-10 categories including schizophrenia,
+bipolar disorder, depression and anxiety-related conditions.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<h3>Data Preparation</h3>
+
+<p>
+All datasets were cleaned and harmonised in R using packages such as
+dplyr, tidyr and lubridate.
+</p>
+
+<ul>
+
+<li>Creation of monthly and quarterly time-series indices</li>
+
+<li>Handling missing values and inconsistent update cycles</li>
+
+<li>Construction of normalised indicators for cross-regional comparisons</li>
+
+<li>Integration of multiple datasets into a unified analytical structure</li>
+
+</ul>
+
+</section>
+
+
+<section class="section">
+
+<h3>Methods and Modelling</h3>
+
+<p>
+Two complementary analytical approaches were used to evaluate changes
+in mental-health service patterns.
+</p>
+
+<h5>Interrupted Time-Series Analysis</h5>
+
+<p>
+Interrupted Time-Series modelling was used to detect whether March 2020,
+when COVID-19 restrictions began, caused a structural break in service use.
+The model estimated both the immediate shock and subsequent trend changes.
+</p>
+
+<h5>Mixed-Effects Regression (GLMM)</h5>
+
+<p>
+Mixed-effects models were used to account for regional variation across health boards.
+</p>
+
+<ul>
+
+<li>Fixed effects: time trend, mental-health spending, pandemic indicator</li>
+
+<li>Random effects: health board variation</li>
+
+</ul>
+
+<p>
+This approach allowed the analysis to capture both national trends and regional differences
+in service disruption.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<h3>Key Findings</h3>
+
+<div class="kpi-grid">
+
+<div class="kpi">
+<div class="label">Admission Change (Early 2020)</div>
+<div class="value">≈ 25% decline</div>
+</div>
+
+<div class="kpi">
+<div class="label">Most Affected Age Group</div>
+<div class="value">18–29 years</div>
+</div>
+
+<div class="kpi">
+<div class="label">Regions Most Impacted</div>
+<div class="value">Glasgow, Lothian, Grampian</div>
+</div>
+
+<div class="kpi">
+<div class="label">Budget vs Service Activity</div>
+<div class="value">Spending rose while inpatient activity remained below pre-pandemic levels</div>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h3>Interpretation</h3>
+
+<ul>
+
+<li>Psychiatric admissions dropped sharply during early pandemic months and have not fully recovered.</li>
+
+<li>Urban health boards experienced the most pronounced reductions in service access.</li>
+
+<li>Younger adults were disproportionately affected by disruptions.</li>
+
+<li>Admissions for severe disorders remained relatively stable, while depression and anxiety admissions declined sharply.</li>
+
+</ul>
+
+<p>
+These patterns suggest that service delivery shifted towards community-based and remote care,
+while hospital capacity constraints limited inpatient access.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<h3>Visual Analytics: The Shiny Dashboard</h3>
+
+<p>
+To translate the statistical modelling into an accessible tool,
+an interactive Shiny dashboard was developed.
+</p>
+
+<p>
+The dashboard allows users to explore:
+</p>
+
+<ul>
+
+<li>Diagnosis trends across time</li>
+
+<li>Regional comparisons across health boards</li>
+
+<li>Demographic differences by age and gender</li>
+
+<li>Pre- and post-COVID trend changes</li>
+
+</ul>
+
+<p>
+This interactive environment bridges advanced statistical modelling with
+clear visual storytelling for policymakers and public-health stakeholders.
+</p>
+
+</section>
+
+<section class="section">
+  <div class="d-flex flex-wrap justify-content-between align-items-center mb-2" style="gap:10px;">
+    <h3 class="mb-0">Interactive Dashboard Preview</h3>
+
+    <a
+      href="https://connect.posit.cloud/maxnwosu/content/0198ca06-60f9-ad89-666b-08ea8c23d2e5"
+      target="_blank"
+      rel="noopener"
+      class="btn btn-primary btn-sm"
+    >
+      Open Live Dashboard
+    </a>
+  </div>
+
+  <!-- Screenshot preview -->
+  <div class="card">
+    <div class="card-body">
+      <img
+        src="../images/projects/mental-health-dashboard.png"
+        alt="Mental Health Shiny Dashboard preview"
+        class="img-fluid rounded mb-4">   
+      <img
+        src="../images/projects/mental-health-dashboard2.png"
+        alt="Mental Health Shiny Dashboard preview"
+        class="img-fluid rounded">
+       
+      
+
+      <p class="text-muted mt-3 mb-0">
+        Note: Posit Cloud blocks embedded previews on external websites. Use “Open Live Dashboard” to interact with the app.
       </p>
-    </header>
+    </div>
+  </div>
+</section>
 
-    <section class="mb-4">
-      <h2>Problem</h2>
-      <p>
-        Public discussion during the pandemic highlighted loneliness, anxiety and burnout but evidence was often fragmented.
-        This project set out to answer three questions using data rather than assumption:
-      </p>
-      <ul>
-        <li>Did mental health service use rise or fall after COVID-19 began?</li>
-        <li>Which age groups and regions were most affected?</li>
-        <li>How did policy changes and NHS pressures influence access to care?</li>
-      </ul>
-      <p>
-        The goal was to transform Scotland’s public health data into actionable insight that can inform future policy,
-        planning and equitable recovery.
-      </p>
-    </section>
+<section class="section">
 
-    <section class="mb-4">
-      <h2>Data</h2>
-      <ul>
-        <li><strong>Sources:</strong> Public Health Scotland and NHS Scotland datasets</li>
-        <li><strong>Time period:</strong> 2018–2023 (pre- and post-March 2020 disruption)</li>
-        <li><strong>Key measures:</strong> psychiatric inpatient admissions and referrals</li>
-        <li><strong>Context indicators:</strong> mental health expenditure by local authority</li>
-        <li><strong>Breakdowns:</strong> health board, age, gender and geographic variation</li>
-        <li><strong>Diagnostics:</strong> ICD-10 categories (e.g., schizophrenia, depression, anxiety)</li>
-      </ul>
-      <p>
-        Data were cleaned and harmonised in R (dplyr, tidyr, lubridate), including time-series indexing (monthly),
-        handling missing values and inconsistencies and creating normalised indicators for cross-regional comparisons.
-      </p>
-    </section>
+<h3>Ethics and Data Responsibility</h3>
 
-    <section class="mb-4">
-      <h2>Methods</h2>
-      <ul>
-        <li><strong>Interrupted Time-Series (ITS) Analysis:</strong> estimated the immediate shock (March 2020) and longer-term slope changes after COVID-19 began</li>
-        <li><strong>Mixed-Effects Regression (GLMM, lme4):</strong> modelled service use over time while accounting for health board variation</li>
-        <li><strong>Model structure:</strong> fixed effects (time, spending, pandemic indicator) + random effects (health board)</li>
-        <li><strong>Quality & ethics:</strong> sensitivity checks with lagged models, cross-year validation, aggregate/anonymised data only</li>
-      </ul>
-    </section>
+<p>
+All analysis used publicly available, aggregated and anonymised datasets.
+Several methodological checks were performed to maintain integrity:
+</p>
 
-    <section class="mb-4">
-      <h2>Results</h2>
-      <ul>
-        <li><strong>Sharp decline in inpatient admissions:</strong> early 2020 drops (over ~25% in some regions) with incomplete recovery-suggesting constrained access/capacity rather than reduced need</li>
-        <li><strong>Regional and age inequalities:</strong> steepest reductions in urban boards (e.g., Greater Glasgow & Clyde, Lothian, Grampian) and strongest impact on younger adults (18–29)</li>
-        <li><strong>Diagnosis patterns:</strong> severe disorders (e.g., schizophrenia, bipolar) remained comparatively stable, while depression and anxiety admissions fell sharply-consistent with shifts toward remote care</li>
-        <li><strong>Spending vs service use:</strong> despite rising mental health budgets, inpatient activity did not rebound-indicating systemic changes in how support is accessed and delivered</li>
-      </ul>
-      <p>
-        Essentially, the findings show both adaptation and widening gaps: digital/community services expanded, but the transition
-        created uneven access across regions and groups. The work reinforces that careful analytics can illuminate social realities
-        and support equitable resource targeting.
-      </p>
-    </section>
+<ul>
 
-    <section class="mb-4">
-      <h2>Visual Analytics: R Shiny Dashboard</h2>
-      <p>
-        To make the insights accessible, I built an interactive Shiny dashboard that enables exploration of:
-        diagnosis trends, demographic patterns, health board comparisons by year, and pre-/post-COVID changes.
-        The dashboard bridges advanced modelling with practical public health storytelling.
-      </p>
-    </section>
+<li>Sensitivity testing using lagged models</li>
 
-    <section class="mb-4">
-      <h2>Links</h2>
-      <ul>
-        <li>
-          <a href="https://connect.posit.cloud/maxnwosu/content/0198ca06-60f9-ad89-666b-08ea8c23d2e5" target="_blank" rel="noopener">
-            Live Shiny Dashboard
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/pulse/data-driven-exploration-mental-health-trends-scotland-nwosu-udpof" target="_blank" rel="noopener">
-            Project write-up on LinkedIn
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/frizuma3/covid-mental-health" target="_blank" rel="noopener">
-            GitHub repository (source code)
-          </a>
-        </li>
-        <li><a href="/">Back to portfolio homepage</a></li>
-      </ul>
-    </section>
-  </main>
+<li>Cross-year validation</li>
+
+<li>Transparent documentation of modelling assumptions</li>
+
+</ul>
+
+<p>
+The project emphasises responsible analytics where statistical evidence informs
+policy decisions while protecting privacy and avoiding misuse of sensitive health data.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<h3>Impact and Practical Value</h3>
+
+<ul>
+
+<li>Provides a reproducible framework for monitoring mental-health service trends</li>
+
+<li>Supports NHS planning and capacity forecasting</li>
+
+<li>Helps policymakers identify regions and populations with unmet mental-health needs</li>
+
+<li>Demonstrates how open public health data can inform equitable resource allocation</li>
+
+</ul>
+
+</section>
+
+
+<section class="section">
+
+<h3>Project Links</h3>
+
+<ul>
+
+<li><a href="https://connect.posit.cloud/maxnwosu/content/0198ca06-60f9-ad89-666b-08ea8c23d2e5" target="_blank">Live Shiny Dashboard</a></li>
+
+<li><a href="https://www.linkedin.com/pulse/data-driven-exploration-mental-health-trends-scotland-nwosu-udpof" target="_blank">Project write-up on LinkedIn</a></li>
+
+<li><a href="https://github.com/frizuma3/covid-mental-health" target="_blank">GitHub repository</a></li>
+
+<li><a href="../index.html#projects">Back to Portfolio</a></li>
+
+</ul>
+
+</section>
+
+
+<footer class="text-center">
+© <span id="yr"></span> Maximilian Nwosu
+</footer>
+
+</main>
+
+
+<script>
+document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>

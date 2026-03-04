@@ -2,77 +2,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Electric Vehicle Analysis Dashboard | Tableau | Maximilian Nwosu</title>
-  <meta name="description" content="Portfolio project by Maximilian Nwosu: a Tableau dashboard analysing electric vehicle (EV) trends, exploring adoption patterns, distributions and interactive insights for decision-making.">
+  <title>Electric Vehicle (EV) Analysis Dashboard (Tableau) | Maximilian Nwosu</title>
+  <meta name="description" content="Tableau EV Analysis dashboard by Maximilian Nwosu exploring Washington EV adoption by vehicle type, make, county, vehicle year and postcode mapping with interactive filters and drill-down." />
 
   <link rel="canonical" href="https://maxnwosu.com/projects/tableau-ev-dashboard.html" />
   <meta name="robots" content="index,follow" />
 
-  <!-- Keep styling consistent with your main site -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/style.css">
+  <meta property="og:title" content="EV Analysis Dashboard (Tableau) | Maximilian Nwosu" />
+  <meta property="og:description" content="Tableau dashboard exploring EV adoption patterns in Washington by vehicle type, make, county, year, and postcode distribution." />
+  <meta property="og:url" content="https://maxnwosu.com/projects/tableau-ev-dashboard.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://maxnwosu.com/images/projects/4.png" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    body { background:#e5e9ec; }
+
+    /* Navbar */
+    .navbar { background-color:#1f2937 !important; box-shadow:0 2px 4px rgba(0,0,0,0.2); }
+    .navbar-nav .nav-link { color:#f1f5f9 !important; padding:8px 15px; transition:.3s ease; font-weight:500; }
+    .navbar-nav .nav-link:hover { color:#38bdf8 !important; transform:translateY(-2px); }
+
+    /* Hero */
+    .page-hero { padding:90px 0 30px; text-align:center; }
+    .hero-badges .badge { margin:.2rem .25rem; padding:.55rem .7rem; }
+
+    /* Layout */
+    .card { box-shadow:0 0 10px rgba(0,0,0,0.1); }
+    .section { padding:25px 0; }
+    .muted { color:#6c757d; }
+
+    /* Image */
+    .project-img {
+      width:100%;
+      max-height:420px;
+      object-fit:contain;
+      background:#f8f9fa;
+      border-radius:10px;
+      padding:8px;
+    }
+
+    /* Buttons */
+    .btn-row { display:flex; flex-wrap:wrap; gap:10px; }
+
+    /* KPI tiles */
+    .kpi-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:12px;
+    }
+    .kpi {
+      background:#fff;
+      border-radius:10px;
+      padding:14px 14px;
+      border:1px solid rgba(0,0,0,0.06);
+    }
+    .kpi .label { font-size:.9rem; color:#6c757d; }
+    .kpi .value { font-size:1.25rem; font-weight:700; }
+
+    footer { padding:30px 0; color:#6c757d; }
+  </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-light bg-light px-3">
-    <a class="navbar-brand" href="/">← Back to maxnwosu.com</a>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html#home">Max's Portfolio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav"
+        aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
-  <main class="container py-5">
-    <header class="mb-4">
-      <h1>Electric Vehicle (EV) Dashboard (Tableau)</h1>
-      <p class="lead">
-        A Tableau visual analytics project exploring EV adoption and market patterns through interactive charts,
-        filters and geographic exploration.
-      </p>
-    </header>
 
-    <section class="mb-4">
-      <h2>Problem</h2>
+  
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <h1 class="mb-2">Electric Vehicle (EV) Analysis Dashboard (Tableau)</h1>
+      <p class="lead mb-3">
+        Interactive Tableau dashboard analysing EV adoption patterns in Washington across vehicle type, make, county,
+        vehicle year and postcode distribution.
+      </p>
+
+      <div class="hero-badges">
+        <span class="badge badge-primary">Tableau</span>
+        <span class="badge badge-primary">Trend Analysis</span>
+        <span class="badge badge-primary">Geospatial Mapping</span>
+        <span class="badge badge-primary">Segmentation</span>
+        <span class="badge badge-primary">Interactive Filters</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Image + Summary -->
+    <div class="row align-items-start">
+      <div class="col-lg-7 mb-4">
+        <img src="../images/projects/4.png" class="project-img" alt="Tableau EV dashboard screenshot">
+       
+      </div>
+
+      <div class="col-lg-5 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="mb-3">Project Summary</h4>
+            <p class="mb-3">
+              This Tableau project presents an end-to-end visual analytics dashboard to support exploration of EV adoption.
+              It combines a vehicle type split, make ranking, county concentration, a postcode ownership map, and vehicle-year
+              patterns to help stakeholders identify where adoption is concentrated and how it is changing over time.
+            </p>
+
+            <div class="btn-row">
+              <!-- Keep these consistent with your GitHub links -->
+              <a class="btn btn-primary" href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Tableau%20EV%20Dashboard.pdf" target="_blank" rel="noopener">View Report (PDF)</a>
+              <a class="btn btn-secondary" href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Tableau%20-%20Electric%20Vehicle%20Analysis%20%26%20Dashboard.twbx" target="_blank" rel="noopener">Download Workbook (TWBX)</a>
+              <a class="btn btn-outline-primary" href="../index.html#projects">Back to Projects</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem -->
+    <section class="section">
+      <h3 class="mb-3">Problem</h3>
       <p>
-        Build an interactive dashboard that helps users explore EV trends and answer questions like:
-        How is EV adoption changing over time? Which segments are growing fastest? What patterns appear by region or category?
+        Build an interactive dashboard that enables users to explore EV adoption and market patterns: how adoption varies by
+        vehicle type, which manufacturers dominate, where ownership clusters geographically, and how counts vary by vehicle year.
       </p>
     </section>
 
-    <section class="mb-4">
-      <h2>Data</h2>
+    <!-- Data -->
+    <section class="section">
+      <h3 class="mb-3">Data</h3>
       <ul>
-        <li><strong>Dataset:</strong> EV-related dataset</li>
-        <li><strong>Core fields:</strong> date/year, vehicle type, manufacturer/model, region, metrics (counts, shares)</li>
-        <li><strong>Preparation:</strong> cleaning, handling missing values, creating calculated fields for analysis</li>
+        <li>Geographic focus: Washington</li>
+        <li>Core fields represented in the dashboard: vehicle type, make, county, postcode ownership, vehicle year</li>
+        <li>Primary dashboard views: vehicle type split, make ranking (with model drill-down), top counties, map, and vehicle-year bars</li>
+      </ul>
+      <p class="muted mb-0">All figures referenced below are taken directly from the Tableau EV dashboard visualisations.</p> 
+    </section>
+
+    <!-- Headline KPIs -->
+    <section class="section">
+      <h3 class="mb-3">Headline Indicators (from the dashboard)</h3>
+
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="label">Top Make</div>
+          <div class="value">Tesla - 59,484</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Next Highest Makes</div>
+          <div class="value">Nissan - 13,007 • Chevrolet - 11,231</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Top County</div>
+          <div class="value">King - 416</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Highest Vehicle Year Count Shown</div>
+          <div class="value">2023 - 207</div>
+        </div>
+      </div>
+
+      <p class="muted mt-2 mb-0">Values are taken from the make ranking, top counties chart and vehicle year distribution shown in the dashboard.</p>
+    </section>
+
+    <!-- Key Insights -->
+    <section class="section">
+      <h3 class="mb-3">Key Insights</h3>
+      <ul>
+        <li>
+          Manufacturer concentration is strong: Tesla leads with 59,484, followed by Nissan (13,007) and Chevrolet (11,231).
+          Ford (6,720) and BMW (5,682) form the next tier, with Kia (5,245) and Toyota (4,748) also significant contributors.
+        </li>
+        <li>
+          EV ownership is geographically concentrated. King county leads with 416, followed by Snohomish (71), Clark (52) and Pierce (51).
+          This supports prioritisation for infrastructure planning and targeted policy interventions.
+        </li>
+        <li>
+          The vehicle year chart shows visible growth in later years. Counts displayed include 2018 (57), 2019 (139), 2020 (32),
+          2022 (144) and 2023 (207), indicating a strong recent rise in EV representation in the dataset.
+        </li>
+        <li>
+          The postcode map reveals clustering around major population areas, supporting analysis of adoption hotspots and regional demand.
+          This complements the county ranking by adding fine-grained location context. 
+        </li>
+        <li>
+          Vehicle type is split between BEV and plug-in hybrid categories in the dashboard, enabling users to compare adoption patterns across
+          fully electric vs hybrid adoption segments. 
+        </li>
       </ul>
     </section>
 
-    <section class="mb-4">
-      <h2>Methods</h2>
+    <!-- Methods -->
+    <section class="section">
+      <h3 class="mb-3">Methods</h3>
       <ul>
-        <li><strong>Tableau:</strong> interactive dashboard design with filters and parameter controls</li>
-        <li><strong>Visuals:</strong> time-series trends, breakdowns by category/make/model, maps</li>
-        <li><strong>Analytics:</strong> calculated fields, groupings, highlighting top contributors and changes over time</li>
+        <li>Interactive dashboard design with multi-view layout (type split, make ranking, top counties, map, vehicle year)</li>
+        <li>Geospatial mapping for postcode-level ownership exploration</li>
+        <li>Segmentation and ranking to highlight top contributors and adoption concentration</li>
+        <li>Filter-driven exploration by car make, enabling stakeholder self-service analysis</li>
       </ul>
     </section>
 
-    <section class="mb-4">
-      <h2>Results</h2>
+    <!-- Results -->
+    <section class="section">
+      <h3 class="mb-3">Results</h3>
       <ul>
-        <li>Delivered an easy-to-navigate dashboard for exploring EV trends and comparisons</li>
-        <li>Enabled rapid identification of growth segments and high-contributing categories</li>
-        <li>Provided stakeholder-friendly visuals suitable for presentations or portfolio review</li>
+        <li>Delivered a clear, stakeholder-friendly Tableau dashboard for EV adoption exploration</li>
+        <li>Enabled identification of dominant manufacturers and high-concentration counties</li>
+        <li>Provided time context through vehicle-year distribution and location context through postcode mapping</li>
       </ul>
     </section>
 
-    <section class="mb-4">
-      <h2>Links</h2>
+    <!-- Senior Analyst signals -->
+    <section class="section">
+      <h3 class="mb-3">What This Demonstrates (Senior Analyst Signals)</h3>
       <ul>
-        <li><a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Tableau%20-%20Electric%20Vehicle%20Analysis%20%26%20Dashboard.twbx" target="_blank" rel="noopener">GitHub repository (Download)</a></li>
-        <li><a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Tableau%20EV%20Dashboard.pdf" target="_blank" rel="noopener">View Report</a></li>
-        <li><a href="/">Back to portfolio homepage</a></li>
+        <li>Ability to translate a policy/commercial question into an interactive analytics product</li>
+        <li>Segmentation, ranking and geographic reasoning for evidence-based prioritisation</li>
+        <li>Clear insight communication: concentration, growth patterns and comparative breakdowns</li>
+        <li>Dashboard design for stakeholder adoption and self-service exploration</li>
       </ul>
     </section>
+
+    <footer class="text-center">
+      <div>© <span id="yr"></span> Maximilian Nwosu • Tableau Portfolio Project</div>
+    </footer>
   </main>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+
+  <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+  <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

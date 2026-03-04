@@ -2,78 +2,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Power BI Sales Dashboard | Classic Models | Maximilian Nwosu</title>
-  <meta name="description" content="Portfolio project by Maximilian Nwosu: a Power BI sales dashboard built on the Classic Models dataset, showcasing data modelling, DAX measures and interactive business reporting.">
+  <title>Classic Models Sales Dashboard (Power BI) | Maximilian Nwosu</title>
+  <meta name="description" content="Power BI Classic Models Sales Dashboard by Maximilian Nwosu. Star-schema modelling, DAX measures, KPI reporting and interactive drill-down across product lines, offices and customer countries." />
 
   <link rel="canonical" href="https://maxnwosu.com/projects/power-bi-classic-models.html" />
   <meta name="robots" content="index,follow" />
 
-  <!-- Keep styling consistent with your main site -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/style.css">
+  <meta property="og:title" content="Classic Models Sales Dashboard (Power BI) | Maximilian Nwosu" />
+  <meta property="og:description" content="Power BI dashboard built on the Classic Models dataset using structured data modelling and KPI reporting across product lines, offices and customer countries." />
+  <meta property="og:url" content="https://maxnwosu.com/projects/power-bi-classic-models.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://maxnwosu.com/images/projects/3.png" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    body { background:#e5e9ec; }
+
+    .navbar { background-color:#1f2937 !important; box-shadow:0 2px 4px rgba(0,0,0,0.2); }
+    .navbar-nav .nav-link { color:#f1f5f9 !important; padding:8px 15px; transition:.3s ease; font-weight:500; }
+    .navbar-nav .nav-link:hover { color:#38bdf8 !important; transform:translateY(-2px); }
+
+    .page-hero { padding:90px 0 30px; text-align:center; }
+    .hero-badges .badge { margin:.2rem .25rem; padding:.55rem .7rem; }
+
+    .card { box-shadow:0 0 10px rgba(0,0,0,0.1); }
+    .section { padding:25px 0; }
+    .muted { color:#6c757d; }
+
+    .project-img { width:100%; max-height:420px; object-fit:contain; background:#f8f9fa; border-radius:10px; padding:8px; }
+
+    .btn-row { display:flex; flex-wrap:wrap; gap:10px; }
+
+    .kpi-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; }
+    .kpi { background:#fff; border-radius:10px; padding:14px 14px; border:1px solid rgba(0,0,0,0.06); }
+    .kpi .label { font-size:.9rem; color:#6c757d; }
+    .kpi .value { font-size:1.25rem; font-weight:700; }
+
+    footer { padding:30px 0; color:#6c757d; }
+  </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-light bg-light px-3">
-    <a class="navbar-brand" href="/">← Back to maxnwosu.com</a>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html#home">Max's Portfolio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav"
+        aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
-  <main class="container py-5">
-    <header class="mb-4">
-      <h1>Classic Models Sales Dashboard (Power BI)</h1>
-      <p class="lead">
-        An interactive Power BI dashboard designed to explore sales performance, customer trends,
-        product categories and revenue drivers, using a clean star schema and DAX measures.
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <h1 class="mb-2">Classic Models Sales Dashboard (Power BI)</h1>
+      <p class="lead mb-3">
+        Business-ready KPI dashboard to analyse sales performance, profitability drivers and geographic contribution
+        across product lines, offices and customer countries.
       </p>
-    </header>
 
-    <section class="mb-4">
-      <h2>Problem</h2>
+      <div class="hero-badges">
+        <span class="badge badge-primary">Power BI</span>
+        <span class="badge badge-primary">DAX</span>
+        <span class="badge badge-primary">Data Modelling</span>
+        <span class="badge badge-primary">KPI Reporting</span>
+        <span class="badge badge-primary">Commercial Insight</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Image + Summary -->
+    <div class="row align-items-start">
+      <div class="col-lg-7 mb-4">
+        <img src="../images/projects/3.png" class="project-img" alt="Classic Models Power BI dashboard screenshot">
+      </div>
+
+      <div class="col-lg-5 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="mb-3">Project Summary</h4>
+            <p class="mb-3">
+              This Power BI project demonstrates end-to-end BI delivery: modelling sales data into a reliable reporting structure,
+              building reusable measures, and designing an interactive dashboard that supports both executive monitoring and
+              drill-down analysis.
+            </p>
+
+            <div class="btn-row">
+              <a class="btn btn-primary" href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Power%20BI%20-%20ClassicModels%20Dashboard.pdf" target="_blank" rel="noopener">View Report (PDF)</a>
+              <a class="btn btn-secondary" href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Power%20BI%20-%20ClassicModels%20Dashboard.pbix" target="_blank" rel="noopener">Download PBIX</a>
+              <a class="btn btn-outline-primary" href="../index.html#projects">Back to Projects</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem -->
+    <section class="section">
+      <h3 class="mb-3">Problem</h3>
       <p>
-        Create a business-ready reporting dashboard that helps stakeholders answer questions such as:
-        Which products drive revenue? Which customers and regions perform best? How do sales trends change over time?
+        Build a stakeholder-friendly dashboard that answers key trading questions quickly:
+        overall sales performance, how profitability is distributed across product lines, and which offices and customer countries
+        contribute the most to net profit.
       </p>
     </section>
 
-    <section class="mb-4">
-      <h2>Data</h2>
+    <!-- Data -->
+    <section class="section">
+      <h3 class="mb-3">Data</h3>
       <ul>
-        <li><strong>Dataset:</strong> Classic Models (sales, orders, customers, products)</li>
-        <li><strong>Entities:</strong> customers, orders, order details, products, employees and offices.</li>
-        <li><strong>Preparation:</strong> data cleaning, relationship mapping, data types, date table creation.</li>
+        <li>Dataset: Classic Models (orders, customers, order details, products, employees, offices)</li>
+        <li>Preparation: relationship mapping, data type validation, and time intelligence support (date filtering)</li>
+        <li>Date range used in dashboard: 06/01/2003 to 31/05/2005</li>
       </ul>
     </section>
 
-    <section class="mb-4">
-      <h2>Methods</h2>
+    <!-- Headline KPIs -->
+    <section class="section">
+      <h3 class="mb-3">Headline KPIs (from the dashboard)</h3>
+
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="label">Total Sales</div>
+          <div class="value">£9.60M</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Unique Orders</div>
+          <div class="value">326</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Average Order Value</div>
+          <div class="value">£29.46K</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Net Profit (overall)</div>
+          <div class="value">£3,825,880.25</div>
+        </div>
+      </div>
+
+      <p class="muted mt-2 mb-0">
+        KPI values are taken directly from the Power BI dashboard pages (sales tiles on page 1 and profit total on page 2).
+      </p>
+    </section>
+
+    <!-- Key Insights -->
+    <section class="section">
+      <h3 class="mb-3">Key Insights</h3>
       <ul>
-        <li><strong>Data model:</strong> star schema approach for reliable analytics</li>
-        <li><strong>DAX:</strong> measures for revenue, profit, YoY/period comparisons, KPIs</li>
-        <li><strong>Visuals:</strong> KPI cards, trend lines, category breakdowns, customer ranking, slicers for exploration</li>
-        <li><strong>UX:</strong> clear layout, filters for product line, region, date and customer segments</li>
+        <li>
+          Product line profitability is led by Classic Cars (£1.53M net profit), followed by Vintage Cars (£0.74M) and Motorcycles (£0.47M).
+          Lower contributors include Ships (£0.26M) and Trains.
+        </li>
+        <li>
+          Net profit is concentrated across offices, with USA contributing £1.39M (36.27%) and France £1.24M (32.34%).
+          The UK contributes £0.57M (14.82%) and Australia £0.45M (11.84%).
+        </li>
+        <li>
+          The profit-by-cost scatter plot shows a strong positive relationship between cost and net profit, supporting margin
+          and cost-to-serve conversations at product/order level.
+        </li>
+        <li>
+          The sales overview table provides month-level performance with MoM% and YTD context; total sales shown in the table are £9,604,190.61,
+          helping stakeholders review performance changes across time.
+        </li>
       </ul>
     </section>
 
-    <section class="mb-4">
-      <h2>Results</h2>
+    <!-- Approach -->
+    <section class="section">
+      <h3 class="mb-3">Approach</h3>
       <ul>
-        <li>Delivered a dashboard that supports quick performance monitoring and drill-down analysis</li>
-        <li>Enabled identification of top products and sales trends over time</li>
-        <li>Provided consistent KPIs through a structured model and reusable measures</li>
+        <li>Structured modelling approach to support consistent KPIs across filters and drill-down paths</li>
+        <li>Measures for sales and profit reporting, plus period comparisons (MoM% and YTD views)</li>
+        <li>Dashboard UX designed for fast performance review: KPI tiles, product line ranking, office contribution and country breakdown</li>
       </ul>
     </section>
 
-    <section class="mb-4">
-      <h2>Links</h2>
+    <!-- Results -->
+    <section class="section">
+      <h3 class="mb-3">Results</h3>
       <ul>
-        <li><a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Power%20BI%20-%20ClassicModels%20Dashboard.pbix" target="_blank" rel="noopener">GitHub repository (Download .pbix)</a></li>
-        <li><a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Power%20BI%20-%20ClassicModels%20Dashboard.pdf" target="_blank" rel="noopener">View report</a></li>
-        <li><a href="/">Back to portfolio homepage</a></li>
+        <li>Delivered a KPI-first dashboard for executive monitoring and drill-down investigation</li>
+        <li>Enabled product line and office-level profitability analysis for prioritisation</li>
+        <li>Provided country-level visibility to support market performance conversations</li>
       </ul>
     </section>
+
+    <!-- Senior Analyst signals -->
+    <section class="section">
+      <h3 class="mb-3">What This Demonstrates (Senior Analyst Signals)</h3>
+      <ul>
+        <li>Strong KPI reporting and stakeholder-ready dashboard design</li>
+        <li>Comfort working with profitability metrics (net profit, margin context) and commercial segmentation</li>
+        <li>Ability to move from reporting to insight by highlighting concentration and drivers</li>
+        <li>Clear communication of performance patterns across product, office and geography</li>
+      </ul>
+    </section>
+
+    <footer class="text-center">
+      <div>© <span id="yr"></span> Maximilian Nwosu • Power BI Portfolio Project</div>
+    </footer>
   </main>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+
+  <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+  <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

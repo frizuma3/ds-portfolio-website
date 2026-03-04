@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tableau Bike Sales Analysis Dashboard project by Maximilian Nwosu. Revenue and profit trends with YoY change, top products by quantity, and segmentation by gender, age group and country." />
+  <link rel="canonical" href="https://maxnwosu.com/projects/tableau-bike-sales.html" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:title" content="Bike Sales Analysis Dashboard (Tableau) | Maximilian Nwosu" />
+  <meta property="og:description" content="Tableau dashboard showing revenue, profit, YoY change, top products by quantity, and customer/geography segmentation." />
+  <meta property="og:url" content="https://maxnwosu.com/projects/tableau-bike-sales.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://maxnwosu.com/images/projects/6.png" />
+
+  <title>Bike Sales Analysis Dashboard (Tableau) | Maximilian Nwosu</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    body { background:#e5e9ec; }
+    .navbar { background-color:#1f2937 !important; box-shadow:0 2px 4px rgba(0,0,0,0.2); }
+    .navbar-nav .nav-link { color:#f1f5f9 !important; padding:8px 15px; transition:.3s ease; font-weight:500; }
+    .navbar-nav .nav-link:hover { color:#38bdf8 !important; transform:translateY(-2px); }
+    .page-hero { padding:90px 0 30px; text-align:center; }
+    .card { box-shadow:0 0 10px rgba(0,0,0,0.1); }
+    .hero-badges .badge { margin:.2rem .25rem; padding:.55rem .7rem; }
+    .project-img { width:100%; max-height:420px; object-fit:contain; background:#f8f9fa; border-radius:10px; padding:8px; }
+    .section { padding:25px 0; }
+    .muted { color:#6c757d; }
+    .btn-row { display:flex; flex-wrap:wrap; gap:10px; }
+    .kpi-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; }
+    .kpi { background:#fff; border-radius:10px; padding:14px 14px; border:1px solid rgba(0,0,0,0.06); }
+    .kpi .label { font-size:.9rem; color:#6c757d; }
+    .kpi .value { font-size:1.25rem; font-weight:700; }
+    footer { padding:30px 0; color:#6c757d; }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html#home">Max's Portfolio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <h1 class="mb-2">Bike Sales Analysis Dashboard (Tableau)</h1>
+      <p class="lead mb-3">
+        Commercial performance dashboard showing revenue, profit and YoY change, plus segmentation by product, customer and geography.
+      </p>
+
+      <div class="hero-badges">
+        <span class="badge badge-primary">Tableau</span>
+        <span class="badge badge-primary">Commercial Insight</span>
+        <span class="badge badge-primary">Segmentation</span>
+        <span class="badge badge-primary">Trend Analysis</span>
+        <span class="badge badge-primary">Executive Reporting</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="row align-items-start">
+      <div class="col-lg-7 mb-4">
+        <img src="../images/projects/6.png" class="project-img" alt="Bike Sales Analysis Dashboard screenshot">
+      </div>
+
+      <div class="col-lg-5 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="mb-3">Project Summary</h4>
+            <p class="mb-3">
+              This Tableau dashboard supports fast performance review and deeper exploration. It starts with headline commercial metrics,
+              then breaks results down by top-selling products (by quantity) and segmentation views that help stakeholders understand who
+              is buying, what they buy and where demand is strongest.
+            </p>
+
+            <div class="btn-row">
+              <!-- Update these paths to wherever you host the files -->
+              <a class="btn btn-primary" href="../assets/tableau-bike-sales-dashboard.pdf">View Report (PDF)</a>
+              <a class="btn btn-secondary" href="../assets/tableau-bike-sales-dashboard.twbx">Download TWBX</a>
+              <a class="btn btn-outline-primary" href="../index.html#projects">Back to Projects</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <section class="section">
+      <h3 class="mb-3">Headline KPIs (from the dashboard)</h3>
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="label">Revenue</div>
+          <div class="value">£14,152,724</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Profit</div>
+          <div class="value">£5,864,087</div>
+        </div>
+        <div class="kpi">
+          <div class="label">YoY % Change</div>
+          <div class="value">-1.6%</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Year Selector</div>
+          <div class="value">2011 – 2016</div>
+        </div>
+      </div>
+      <p class="muted mt-2">Values shown are taken from the KPI tiles and year parameter visible on the Tableau dashboard.</p>
+    </section>
+
+    <!-- Insights -->
+    <section class="section">
+      <h3 class="mb-3">Key Insights</h3>
+      <ul>
+        <li>
+          The dashboard provides category-level context (for example: Accessories £1,778,079, Bikes £5,019,743, Clothing £1,490,815),
+          helping stakeholders understand which areas contribute most to sales performance.
+        </li>
+        <li>
+          The “Top 10 Products Sold by Quantity” view surfaces the highest-volume items, led by Water Bottle - 30 oz. (48.1K),
+          Patch Kit/8 Patches (45.2K), and Mountain Tire Tube (30.1K), supporting inventory and merchandising conversations.
+        </li>
+        <li>
+          Segmentation views are included to explore differences in sales by gender and by age group, helping stakeholders understand
+          customer mix and demand patterns rather than relying on averages.
+        </li>
+        <li>
+          The “Sales by Country” view supports geographic prioritisation and cross-market comparison, including markets such as the
+          United Kingdom, United States, Germany, France, Canada and Australia.
+        </li>
+      </ul>
+    </section>
+
+    <!-- What this demonstrates -->
+    <section class="section">
+      <h3 class="mb-3">What This Project Demonstrates</h3>
+      <ul>
+        <li>Executive KPI reporting with trend context (revenue, profit, YoY change)</li>
+        <li>Product volume insight for operational decision-making</li>
+        <li>Customer and geography segmentation for commercial strategy</li>
+        <li>Interactive exploration via filters/parameters for stakeholder self-service</li>
+      </ul>
+    </section>
+
+    <footer class="text-center">
+      <div>© <span id="yr"></span> Maximilian Nwosu • Tableau Portfolio Project</div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+  <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+  <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Power BI Coca-Cola Sales Dashboard project by Maximilian Nwosu. KPI reporting across sales, units, operating profit, margin and price; drill-down by beverage brand and state with driver analysis." />
+  <link rel="canonical" href="https://maxnwosu.com/projects/power-bi-coca-cola-sales.html" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:title" content="Coca-Cola Sales Dashboard (Power BI) | Maximilian Nwosu" />
+  <meta property="og:description" content="Power BI dashboard analysing Coca-Cola beverage performance with KPI reporting, brand comparisons, state-level views and driver analysis for operating profit." />
+  <meta property="og:url" content="https://maxnwosu.com/projects/power-bi-coca-cola-sales.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://maxnwosu.com/images/projects/5.png" />
+
+  <title>Coca-Cola Sales Dashboard (Power BI) | Maximilian Nwosu</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    body { background:#e5e9ec; }
+    .navbar { background-color:#1f2937 !important; box-shadow:0 2px 4px rgba(0,0,0,0.2); }
+    .navbar-nav .nav-link { color:#f1f5f9 !important; padding:8px 15px; transition:.3s ease; font-weight:500; }
+    .navbar-nav .nav-link:hover { color:#38bdf8 !important; transform:translateY(-2px); }
+    .page-hero { padding:90px 0 30px; text-align:center; }
+    .card { box-shadow:0 0 10px rgba(0,0,0,0.1); }
+    .hero-badges .badge { margin: .2rem .25rem; padding:.55rem .7rem; }
+    .project-img { width:100%; max-height:420px; object-fit:contain; background:#f8f9fa; border-radius:10px; padding:8px; }
+    .section { padding:25px 0; }
+    .muted { color:#6c757d; }
+    .btn-row { display:flex; flex-wrap:wrap; gap:10px; }
+    .kpi-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; }
+    .kpi { background:#fff; border-radius:10px; padding:14px 14px; border:1px solid rgba(0,0,0,0.06); }
+    .kpi .label { font-size:.9rem; color:#6c757d; }
+    .kpi .value { font-size:1.25rem; font-weight:700; }
+    footer { padding:30px 0; color:#6c757d; }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html#home">Max's Portfolio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <h1 class="mb-2">Coca-Cola Sales Dashboard (Power BI)</h1>
+      <p class="lead mb-3">
+        KPI reporting and commercial insight across beverage brands, pricing and state-level performance, with driver analysis for operating profit.
+      </p>
+
+      <div class="hero-badges">
+        <span class="badge badge-primary">Power BI</span>
+        <span class="badge badge-primary">DAX</span>
+        <span class="badge badge-primary">Power Query</span>
+        <span class="badge badge-primary">KPI Reporting</span>
+        <span class="badge badge-primary">Commercial Analytics</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="row align-items-start">
+      <div class="col-lg-7 mb-4">
+        <img src="../images/projects/5.png" class="project-img" alt="Coca-Cola Sales Dashboard screenshot">
+      </div>
+
+      <div class="col-lg-5 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="mb-3">Project Summary</h4>
+            <p class="mb-3">
+              This dashboard is designed for stakeholders who need to understand overall performance fast, then drill into what is driving
+              changes in sales and profitability. It brings core measures together (sales, units sold, operating profit, operating margin and
+              average price per unit) and supports exploration by beverage brand and geography.
+            </p>
+
+            <div class="btn-row">
+              <!-- Update these paths to wherever you host the files -->
+              <a class="btn btn-primary" href="../assets/power-bi-coca-cola-sales-dashboard.pdf">View Report (PDF)</a>
+              <a class="btn btn-secondary" href="../assets/power-bi-coca-cola-sales-dashboard.pbix">Download PBIX</a>
+              <a class="btn btn-outline-primary" href="../index.html#projects">Back to Projects</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <section class="section">
+      <h3 class="mb-3">Headline KPIs (from the dashboard)</h3>
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="label">Total Sales</div>
+          <div class="value">$7,523,315</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Units Sold</div>
+          <div class="value">14,618,250</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Operating Profit</div>
+          <div class="value">$2,789,552.50</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Date Range</div>
+          <div class="value">12/02/2022 – 25/12/2022</div>
+        </div>
+      </div>
+      <p class="muted mt-2">Values shown are taken from the KPI tiles visible on the Power BI dashboard.</p>
+    </section>
+
+    <!-- Insights -->
+    <section class="section">
+      <h3 class="mb-3">Key Insights</h3>
+      <ul>
+        <li>
+          Brand performance comparison is central to the report. Coca-Cola shows the highest total sales among the listed brands
+          ($1,766,040) and the highest units sold (3,537,250) in the brand table view.
+        </li>
+        <li>
+          The dashboard captures per-brand operating profit values (for example Coca-Cola $705,173.50 and Dasani Water $571,080.63),
+          enabling quick profit contribution comparisons alongside sales volume.
+        </li>
+        <li>
+          Average price per unit differs by brand (for example Dasani Water shows a higher unit price than several other brands),
+          which helps explain revenue differences even where volumes are similar.
+        </li>
+        <li>
+          The “Key influencers” view highlights the brand effect on operating profit: beverage brand being Coca-Cola is associated with a larger
+          increase in average operating profit than other brands, with Dasani also highlighted as an influencer.
+        </li>
+        <li>
+          A “Sales by State” map view supports geographic performance review and is useful for regional trading conversations and prioritisation.
+        </li>
+      </ul>
+    </section>
+
+    <!-- What this demonstrates -->
+    <section class="section">
+      <h3 class="mb-3">What This Project Demonstrates</h3>
+      <ul>
+        <li>KPI framework design for sales and profitability reporting</li>
+        <li>Brand and geography drill-down for stakeholder self-service</li>
+        <li>Driver analysis mindset (moving from reporting to “why”)</li>
+        <li>Clear layout for monthly trading packs and performance reviews</li>
+      </ul>
+    </section>
+
+    <footer class="text-center">
+      <div>© <span id="yr"></span> Maximilian Nwosu • Power BI Portfolio Project</div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+  <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+  <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

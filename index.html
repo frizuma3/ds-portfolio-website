@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portfolio of Maximilian Nwosu, a Data Scientist specialising in R, SQL, Power BI, Shiny dashboards, BigQuery and machine learning. View projects, dashboards and source code.">
+<meta name="description" content="Portfolio of Maximilian Nwosu, Data Scientist specialising in SQL, R, Python, Power BI, Tableau, Shiny dashboards, BigQuery and machine learning. View projects, dashboards and source code.">
 <link rel="canonical" href="https://maxnwosu.com/">
 <meta name="robots" content="index,follow">
 <meta property="og:title" content="Maximilian Nwosu | Data Scientist Portfolio">
@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://maxnwosu.com/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://maxnwosu.com/images/about/1.jpg">
-<title>Maximilian Nwosu | Data Scientist | Computer Scientist | Data Analyst | R, SQL, Power BI, Shiny</title>
+<title>Maximilian Nwosu | Data Scientist | Data Analyst | SQL, R, Python, Power BI, Shiny, Tableau</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -163,12 +163,17 @@ body {
 
 
 
+
 .skills-section .card-body { display:flex; flex-direction:column; }
 .skills-section .card-title { font-weight: 700; }
 .skill-meta { color:#6c757d; font-size:.95rem; }
 .skill-badges .badge { margin: .15rem .25rem 0 0; }
 .skill-link { margin-top:auto; } /* keeps button pinned to bottom for equal heights */
-
+/* --- Make skill cards visually consistent --- */
+.skills-section .card-title { min-height: 48px; }        /* keeps titles aligned */
+.skills-section .card-text { min-height: 120px; }        /* equalises text heights */
+.skills-section .skill-meta { min-height: 44px; }        /* aligns meta row */
+.skills-section .card-img-top { height: 170px; }         /* consistent image height */
 
 /* Education Section */
 .education-section h2 {
@@ -301,13 +306,35 @@ body {
   </div>
 </nav>
 
-  <section id="home" class="py-5">
+ <section id="home" class="py-5">
   <div class="container text-center" style="padding-top:70px;">
-    <h1>Data and Computer Scientist specialising in R, SQL, Power BI & Shiny</h1>
-    <p class="lead">I build analytics dashboards, data models and machine learning solutions for decision-making.</p>
-    <p>
+    <h1>Senior Data Analyst | SQL, Power BI, R, Python, Tableau | Data Modelling & Automation</h1>
+    <p class="lead">
+      I help UK teams make faster decisions by turning messy data into trusted dashboards, KPI frameworks and reproducible analytics.
+    </p>
+
+    <!-- quick credibility / ATS keywords -->
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-10">
+        <div class="d-flex flex-wrap justify-content-center" style="gap:10px;">
+          <span class="badge bg-primary text-white p-2">Stakeholder Management</span>
+          <span class="badge bg-primary text-white p-2">KPI Design</span>
+          <span class="badge bg-primary text-white p-2">ETL & Data Quality</span>
+          <span class="badge bg-primary text-white p-2">Power BI (DAX / Power Query)</span>
+          <span class="badge bg-primary text-white p-2">SQL (BigQuery / PostgreSQL)</span>
+          <span class="badge bg-primary text-white p-2">Automation</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-4">
       <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#skills" class="btn btn-outline-primary">Core Skills</a>
       <a href="#contact" class="btn btn-secondary">Contact</a>
+    </p>
+
+    <p class="text-muted mt-3" style="font-size:0.95rem;">
+      Open to UK hybrid/remote roles • Dashboards • Reporting • Insights • Data Modelling
     </p>
   </div>
 </section>
@@ -316,9 +343,9 @@ body {
 <section id='about' class="about-section">
   <div class="container">
     <h2>About</h2>
-    <img src="images/about/1.jpg" alt="Maximilian Nwosu - Data Scientist portfolio photo">
+    <img src="images/about/1.png" alt="Maximilian Nwosu - Data Scientist portfolio photo">
     <p>Highly skilled and analytical SQL Data Analyst & Data Modeller with expertise in advanced statistical analysis, Machine Learning, BigQuery and data modelling. Proven experience delivering data transformation, complex SQL interrogation and business data modelling across energy, financial and academic environments. Proficient in designing and maintaining ETL pipelines, performing data discovery and root cause analysis. Expert in translating ambiguous business requirements into structured, scalable data solutions.</p>
-    <p>A strong problem-solver with a solid command of data extraction, transformation and visualisation, I am adept at data mapping, documentation and applying business rules to develop clean and reliable data models. Skilled in tools such as SQL, R, MS Excel, Python, Power BI and Tableau, with a keen eye for data quality, governance and process optimisation.</p>
+    <p>A strong problem-solver with a solid command of data extraction, transformation and visualisation, I am adept at data mapping, documentation and applying business rules to develop clean and reliable data models. Skilled in tools such as SQL, Power BI, R, MS Excel, Python and Tableau, with a keen eye for data quality, governance and process optimisation.</p>
     <p>I bring excellent communication skills and the ability to present complex analytical findings to both technical and non-technical audiences, supporting evidence-based decision-making at all levels. Passionate about uncovering actionable insights and trends. I combine technical expertise with strategic thinking to drive business value through data.</p>
   </div>
 </section>
@@ -336,7 +363,7 @@ body {
       <!-- Project 1 -->
       <div class="col-md-4 mb-4">
         <div class="card">
-          <img src="images/projects/1.jpg" class="card-img-top" alt="R Shiny dashboard mental health Scotland">
+          <img src="images/projects/1.png" class="card-img-top" alt="R Shiny dashboard mental health Scotland">
           <div class="card-body">
             <h5 class="card-title">Project on Health data using R and ShinyApp</h5>
             <p class="card-text">This project examines the impact of the COVID-19 pandemic on trends in mental health services in Scotland. 
@@ -358,9 +385,9 @@ body {
       <!-- Project 2 -->
       <div class="col-md-4 mb-4">
         <div class="card">
-          <img src="images/projects/2.jpg" class="card-img-top" alt="Regression in Predicting Daily Collision">
+          <img src="images/projects/2.png" class="card-img-top" alt="Regression in Predicting Daily Collision">
           <div class="card-body">
-            <h5 class="card-title">Predicting Daily Collision Counts.</h5>
+            <h5 class="card-title">Predicting Daily Collision Counts (Python-DNN)</h5>
             <p class="card-text">This end-to-end data analytics project explores the drivers of daily road collisions over eight years, 
               combining exploratory analysis with two predictive modelling approaches: Linear Regression and a Deep Neural Network (DNN). 
               Implemented entirely in Python on Google Colab, the project demonstrates proficiency in data cleaning, feature engineering, 
@@ -382,7 +409,7 @@ body {
         <div class="card">
           <img src="images/projects/3.png" class="card-img-top" alt="Power BI Classic Models dashboard">
           <div class="card-body">
-            <h5 class="card-title">Classic Models</h5>
+            <h5 class="card-title">Classic Models (Power BI)</h5>
             <p class="card-text">This Power BI dashboard explores sales and profitability for Classic Models Ltd, 
               a retailer of collectible vehicles. It provides an interactive view of global performance from 2003 to 2005, 
               helping managers identify profitable regions, products and customers.</p>
@@ -406,7 +433,7 @@ body {
         <div class="card">
           <img src="images/projects/4.png" class="card-img-top" alt="Tableau Electric Vehicle Dashboard">
           <div class="card-body">
-            <h5 class="card-title">Electric Vehicle Analysis and Dashboard</h5>
+            <h5 class="card-title">Electric Vehicle Analysis and Dashboard (Tableau)</h5>
             <p class="card-text">This Tableau project presents an analytical overview of electric vehicle (EV) adoption across Washington State. 
               This highlights trends by vehicle make, model, type and geographic distribution. The dashboard integrates registration and ownership 
               data to help policymakers, researchers and businesses understand patterns in EV usage and infrastructure needs.</p>
@@ -426,6 +453,87 @@ body {
           </div>
         </div>
       </div>
+
+     <!-- Project 5 -->
+<div class="col-md-4 mb-4">
+  <div class="card">
+    <img src="images/projects/5.png" class="card-img-top" alt="Power BI Coca-Cola Sales Dashboard">
+    <div class="card-body">
+      <h5 class="card-title">Coca-Cola Sales Dashboard (Power BI)</h5>
+
+      <p class="card-text">
+        This Power BI dashboard provides a commercial overview of Coca-Cola beverage sales performance, designed for fast
+        decision-making and executive reporting. It consolidates key commercial measures including total sales, units sold,
+        operating profit, operating margin and average price per unit, giving stakeholders a single view of overall performance
+        before drilling into detail.
+      </p>
+
+      <p class="card-text">
+        The report supports analysis by product brand and geography. Users can compare performance across product lines
+        (for example Coca-Cola, Diet Coke, Sprite, Fanta, Powerade and Dasani Water), identify which items drive revenue versus
+        profitability, and review where sales and margin concentrate across states. A built-in driver-analysis view helps explain
+        what contributes most to operating profit and margin, supporting insight-led conversations rather than “numbers only”
+        reporting.
+      </p>
+
+      <p class="card-text">
+        The dashboard is built to be self-serve: users can explore patterns quickly, validate assumptions, and move from high-level
+        KPIs into root-cause questions such as pricing effects, product mix shifts and regional performance differences. The structure
+        is suitable for monthly trading packs, performance reviews and stakeholder check-ins.
+      </p>
+
+      <p>
+        <a href="projects/power-bi-coca-cola-sales.html" class="btn btn-outline-primary btn-sm">Read More</a>
+      </p>
+
+      <div class="project-buttons">
+        <!-- Update these links to match where you host the PDF/PBIX -->
+        <a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Power%20BI%20-%20Coca-Cola%20Sales%20Dashboard.pdf" class="btn btn-primary">View Report</a>
+        <a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Power%20BI%20-%20Coca-Cola%20Sales%20Dashboard.pbix" class="btn btn-secondary">Download Dashboard (.pbix)</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Project 6 -->
+<div class="col-md-4 mb-4">
+  <div class="card">
+    <img src="images/projects/6.png" class="card-img-top" alt="Tableau Bike Sales Analysis Dashboard">
+    <div class="card-body">
+      <h5 class="card-title">Bike Sales Analysis Dashboard (Tableau)</h5>
+
+      <p class="card-text">
+        This Tableau dashboard analyses bike sales performance across multiple years, providing a clear view of revenue, profit
+        and year-on-year change. It is designed for commercial and product insight, helping stakeholders understand what is selling,
+        who is buying and where demand is strongest.
+      </p>
+
+      <p class="card-text">
+        The dashboard breaks performance down by product and customer segment, including top products by quantity, category-level
+        sales split by gender, sales distribution by age group and country-level performance. These views make it easier to identify
+        which products drive volume, which segments contribute the most value, and where performance is improving or declining over time.
+      </p>
+
+      <p class="card-text">
+        The layout is built for exploration and comparison: users can filter by year and geography to isolate trends, compare product
+        categories and spot commercial opportunities such as high-performing markets, under-served segments, or product lines where
+        profitability diverges from sales volume. This makes the dashboard useful for performance reviews, trading meetings and
+        stakeholder presentations where quick, defensible insight is required.
+      </p>
+
+      <p>
+        <a href="projects/tableau-bike-sales.html" class="btn btn-outline-primary btn-sm">Read More</a>
+      </p>
+
+      <div class="project-buttons">
+        <!-- Update these links to match where you host the PDF/TWBX -->
+        <a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Tableau%20Bike%20Sales%20Dashboard.pdf" class="btn btn-primary">View Report</a>
+        <a href="https://github.com/frizuma3/Power-BI-Dashboard/blob/main/Tableau%20-%20Bike%20Sales%20Analysis%20%26%20Dashboard.twbx" class="btn btn-secondary">Download Tableau Workbook (.twbx)</a>
+      </div>
+    </div>
+  </div>
+</div>
+      
     </div>
 
   </div>
@@ -433,114 +541,173 @@ body {
 
 
 <!-- Skills Section -->
+<!-- Skills Section -->
 <section id="skills" class="skills-section bg-white">
   <div class="container">
-    <h2 class="text-center">Skills</h2>
+    <h2 class="text-center">Core Skills</h2>
+    <p class="text-center text-muted mb-4" style="max-width:900px;margin:0 auto;">
+      Senior Analyst toolkit across data extraction, modelling, BI reporting, automation and stakeholder-facing insight delivery.
+    </p>
+
     <div class="row">
 
-      <!-- R -->
+      <!-- 1) SQL & Data Modelling -->
       <div class="col-lg-3 col-md-6 mb-4 d-flex">
         <div class="card w-100">
-          <img src="images/skills/1.jpeg" class="card-img-top" alt="R">
+          <img src="images/skills/sql.png" class="card-img-top" alt="SQL & Data Modelling">
           <div class="card-body">
-            <h5 class="card-title">R</h5>
+            <h5 class="card-title">SQL & Data Modelling</h5>
             <p class="card-text">
-              R is one of my core languages for analysis and modelling. I use it to clean large datasets,
-              run advanced statistical tests and build predictive models. I also develop interactive
-              dashboards in <strong>R Shiny</strong> so stakeholders can explore real-time insights.
+              Robust SQL for extraction, transformation, performance tuning and reusable views. Strong in dimensional thinking
+              and building clean, scalable datasets for reporting and analysis.
             </p>
-            <p class="skill-meta mb-1"><strong>Tools</strong> R Shiny, tidyverse, ggplot2, dplyr, tidyr, caret, forecast, nlme</p>
-            <div class="skill-badges mb-3">
-              <span class="badge bg-primary text-white">Forecasting</span>
-              <span class="badge bg-primary text-white">Regression</span>
-              <span class="badge bg-primary text-white">Dashboards</span>
-            </div>
-          <!-- <a href="#" class="btn btn-outline-primary skill-link">Link</a>  -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Data Visualisation -->
-      <div class="col-lg-3 col-md-6 mb-4 d-flex">
-        <div class="card w-100">
-          <img src="images/skills/2.png" class="card-img-top" alt="Data Visualisation">
-          <div class="card-body">
-            <h5 class="card-title">Data Visualisation</h5>
-            <p class="card-text">
-              I turn complex data into clear, decision-ready visuals. From KPI dashboards and time-series
-              trends to categorical comparisons, I design visuals that tell a compelling story and drive action.
-            </p>
-            <p class="skill-meta mb-1"><strong>Tools</strong> Power BI, Tableau, R (ggplot2), Python (Matplotlib, Seaborn)</p>
-            <div class="skill-badges mb-3">
-              <span class="badge bg-primary text-white">Dashboards</span>
-              <span class="badge bg-primary text-white">KPI Reporting</span>
-              <span class="badge bg-primary text-white">Design for impact</span>
-            </div>
-            <!-- <a href="#" class="btn btn-outline-primary skill-link">Link</a>  -->
-          </div>
-        </div>
-      </div>
-
-      <!-- SQL -->
-      <div class="col-lg-3 col-md-6 mb-4 d-flex">
-        <div class="card w-100">
-          <img src="images/skills/3.png" class="card-img-top" alt="SQL">
-          <div class="card-body">
-            <h5 class="card-title">SQL</h5>
-            <p class="card-text">
-              I write robust SQL for extraction, transformation and performance-minded joins and
-              build reusable queries and views. Experienced across <strong>MySQL, PostgreSQL</strong> and
-              <strong>BigQuery</strong> designing efficient data models and pipelines.
-            </p>
-            <p class="skill-meta mb-1"><strong>Tools</strong> MySQL, PostgreSQL, Google BigQuery</p>
+            <p class="skill-meta mb-1"><strong>Tools</strong> BigQuery, PostgreSQL, MySQL, joins, CTEs, window functions</p>
             <div class="skill-badges mb-3">
               <span class="badge bg-primary text-white">ETL</span>
               <span class="badge bg-primary text-white">Data Modelling</span>
-              <span class="badge bg-primary text-white">Root-cause analysis</span>
+              <span class="badge bg-primary text-white">Optimisation</span>
             </div>
-            <!-- <a href="#" class="btn btn-outline-primary skill-link">Link</a>  -->
           </div>
         </div>
       </div>
 
-      <!-- Data Storytelling -->
+      <!-- 2) Power BI & DAX -->
       <div class="col-lg-3 col-md-6 mb-4 d-flex">
         <div class="card w-100">
-          <img src="images/skills/4.png" class="card-img-top" alt="Data Storytelling">
+          <img src="images/skills/powerbi.jpg" class="card-img-top" alt="Power BI & DAX">
           <div class="card-body">
-            <h5 class="card-title">Data Storytelling</h5>
+            <h5 class="card-title">Power BI (DAX / Power Query)</h5>
             <p class="card-text">
-              I translate analysis into strategy, clear recommendations, crisp reports and confident
-              presentations for both technical and non-technical audiences.
+              Executive-ready dashboards with strong KPI definitions, drill-down analysis and model-driven reporting.
+              Focused on clarity, performance and stakeholder adoption.
             </p>
-            <p class="skill-meta mb-1"><strong>Strengths</strong> Insight communication, executive storytelling, research synthesis.</p>
+            <p class="skill-meta mb-1"><strong>Tools</strong> DAX, Power Query, data modelling, measures, RLS</p>
             <div class="skill-badges mb-3">
-              <span class="badge bg-primary text-white">Stakeholder</span>
-              <span class="badge bg-primary text-white">Narrative</span>
-              <span class="badge bg-primary text-white">Actionable Insights</span>
+              <span class="badge bg-primary text-white">KPI Frameworks</span>
+              <span class="badge bg-primary text-white">Dashboards</span>
+              <span class="badge bg-primary text-white">Performance</span>
             </div>
-            <!-- <a href="#" class="btn btn-outline-primary skill-link">Link</a>  -->
           </div>
         </div>
       </div>
 
-      <!-- MS Excel -->
+      <!-- 3) Python Analytics -->
       <div class="col-lg-3 col-md-6 mb-4 d-flex">
         <div class="card w-100">
-          <img src="images/skills/5.png" class="card-img-top" alt="MS Excel">
+          <img src="images/skills/python.png" class="card-img-top" alt="Python">
           <div class="card-body">
-            <h5 class="card-title">MS Excel</h5>
+            <h5 class="card-title">Python (Analytics & ML)</h5>
             <p class="card-text">
-              Advanced Excel for rapid analysis and automation: dynamic dashboards, complex formulas,
-              PivotTables and VBA macros to streamline recurring reports and data wrangling.
+              End-to-end analytics in Python: data cleaning, feature engineering, modelling and automation in
+              notebooks and production-style scripts.
             </p>
-            <p class="skill-meta mb-1"><strong>Tools</strong> Excel VBA, PivotTables, LOOKUP/INDEX-MATCH, Power Query.</p>
+            <p class="skill-meta mb-1"><strong>Tools</strong> pandas, NumPy, scikit-learn, TensorFlow, Jupyter/Colab</p>
             <div class="skill-badges mb-3">
               <span class="badge bg-primary text-white">Automation</span>
-              <span class="badge bg-primary text-white">Reporting</span>
-              <span class="badge bg-primary text-white">Data Cleaning</span>
+              <span class="badge bg-primary text-white">Modelling</span>
+              <span class="badge bg-primary text-white">Feature Engineering</span>
             </div>
-            <!-- <a href="#" class="btn btn-outline-primary skill-link">Link</a>  -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 4) R & Shiny -->
+      <div class="col-lg-3 col-md-6 mb-4 d-flex">
+        <div class="card w-100">
+          <img src="images/skills/r.jpeg" class="card-img-top" alt="R & Shiny">
+          <div class="card-body">
+            <h5 class="card-title">R (Statistics & Shiny)</h5>
+            <p class="card-text">
+               Advanced analysis and modelling in R with reproducible workflows, including
+              <strong>exploratory data analysis (EDA)</strong> and <strong>regression</strong>. I build interactive
+              <strong>Shiny</strong> dashboards for exploration, monitoring and research-led insights.
+            </p>
+            <p class="skill-meta mb-1"><strong>Tools</strong> tidyverse, ggplot2, dplyr, tidyr, caret, forecast, nlme, Shiny</p>
+            <div class="skill-badges mb-3">
+              <span class="badge bg-primary text-white">EDA</span>
+              <span class="badge bg-primary text-white">Regression</span>
+              <span class="badge bg-primary text-white">Dashboards</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5) ETL & Data Quality -->
+      <div class="col-lg-3 col-md-6 mb-4 d-flex">
+        <div class="card w-100">
+          <img src="images/skills/etl.png" class="card-img-top" alt="ETL & Data Quality">
+          <div class="card-body">
+            <h5 class="card-title">ETL & Data Quality</h5>
+            <p class="card-text">
+              Practical data engineering mindset: data validation, consistency checks, schema awareness,
+              documentation and repeatable pipelines that reduce reporting risk.
+            </p>
+            <p class="skill-meta mb-1"><strong>Focus</strong> validation rules, reconciliation, monitoring, lineage basics</p>
+            <div class="skill-badges mb-3">
+              <span class="badge bg-primary text-white">Data Quality</span>
+              <span class="badge bg-primary text-white">Governance</span>
+              <span class="badge bg-primary text-white">Reliability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6) Excel & Automation -->
+      <div class="col-lg-3 col-md-6 mb-4 d-flex">
+        <div class="card w-100">
+          <img src="images/skills/excel.png" class="card-img-top" alt="Excel & Automation">
+          <div class="card-body">
+            <h5 class="card-title">Excel (Advanced) & Automation</h5>
+            <p class="card-text">
+              Rapid analysis and operational reporting: complex formulas, Power Query transforms,
+              PivotTables and VBA automation for recurring business processes.
+            </p>
+            <p class="skill-meta mb-1"><strong>Tools</strong> Power Query, PivotTables, VBA, INDEX-MATCH/XLOOKUP</p>
+            <div class="skill-badges mb-3">
+              <span class="badge bg-primary text-white">Reporting</span>
+              <span class="badge bg-primary text-white">Automation</span>
+              <span class="badge bg-primary text-white">Data Wrangling</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7) Data Visualisation -->
+      <div class="col-lg-3 col-md-6 mb-4 d-flex">
+        <div class="card w-100">
+          <img src="images/skills/visualisation.png" class="card-img-top" alt="Data Visualisation">
+          <div class="card-body">
+            <h5 class="card-title">Data Visualisation</h5>
+            <p class="card-text">
+              Clear, decision-ready visual storytelling: trends, drivers, comparisons and KPI narratives
+              designed for busy stakeholders.
+            </p>
+            <p class="skill-meta mb-1"><strong>Tools</strong> Power BI, Tableau, ggplot2, Matplotlib</p>
+            <div class="skill-badges mb-3">
+              <span class="badge bg-primary text-white">Storytelling</span>
+              <span class="badge bg-primary text-white">KPI Reporting</span>
+              <span class="badge bg-primary text-white">Usability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8) Stakeholder Management -->
+      <div class="col-lg-3 col-md-6 mb-4 d-flex">
+        <div class="card w-100">
+          <img src="images/skills/stakeholders.png" class="card-img-top" alt="Stakeholder Management">
+          <div class="card-body">
+            <h5 class="card-title">Stakeholder & Insight Delivery</h5>
+            <p class="card-text">
+              I translate business questions into analytics outputs: requirements gathering, KPI definitions,
+              concise insight decks and recommendations that drive action.
+            </p>
+            <p class="skill-meta mb-1"><strong>Strengths</strong> requirements, prioritisation, exec comms, impact focus</p>
+            <div class="skill-badges mb-3">
+              <span class="badge bg-primary text-white">Stakeholders</span>
+              <span class="badge bg-primary text-white">Requirements</span>
+              <span class="badge bg-primary text-white">Actionable Insights</span>
+            </div>
           </div>
         </div>
       </div>
@@ -557,19 +724,19 @@ body {
     <ul class="list-unstyled mt-4">
       <li class="mb-3">
         <h5 class="mb-1">Applied Data Analytics (MSc)</h5>
-        <p class="mb-0 text-muted">University of the Highlands and Islands -  August 2025</p>
+        <p class="mb-0 text-muted">University of the Highlands and Islands, UK</p>
       </li>
       <li class="mb-3">
         <h5 class="mb-1">Computer Science (HND)</h5>
-        <p class="mb-0 text-muted">University of the Highlands and Islands -  June 2023</p>
+        <p class="mb-0 text-muted">University of the Highlands and Islands, UK.</p>
       </li>
       <li class="mb-3">
         <h5 class="mb-1">Creative Problem-Solving and Decision-Making</h5>
-        <p class="mb-0 text-muted">Delft University of Technology (edX) -  July 2017</p>
+        <p class="mb-0 text-muted">Delft University of Technology (edX)</p>
       </li>
       <li>
         <h5 class="mb-1">Bachelor of Philosophy (B. Phil. Hons)</h5>
-        <p class="mb-0 text-muted">Pontifical Urban University -  June 2006</p>
+        <p class="mb-0 text-muted">Pontifical Urban University, Rome. </p>
       </li>
     </ul>
   </div>
@@ -632,13 +799,13 @@ body {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Maximilian Nwosu",
-  "jobTitle": "Data Scientist",
+  "jobTitle": "Senior Data Analyst",
   "url": "https://maxnwosu.com",
   "sameAs": [
     "https://www.linkedin.com/in/maximilian-nwosu-5730859b",
     "https://github.com/frizuma3"
   ],
-  "knowsAbout": ["R", "SQL", "Power BI", "Tableau", "BigQuery", "Machine Learning", "Shiny"]
+  "knowsAbout": ["SQL", "R", "Python", "Power BI", "Tableau", "DAX", "Power Query", "ETL", "KPI Reporting", "Data Modelling", "BigQuery", "Machine Learning", "Shiny", "TensorFlow"]
 }
 </script>
 
